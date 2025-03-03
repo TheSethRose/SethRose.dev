@@ -62,4 +62,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 Seth Rose - [hi@sethrose.dev](mailto:hi@sethrose.dev)
 
-Project Link: [https://github.com/yourusername/sethrosedev](https://github.com/yourusername/sethrosedev)
+Project Link: [https://github.com/TheSethRose/SethRose.dev](https://github.com/TheSethRose/SethRose.dev)
