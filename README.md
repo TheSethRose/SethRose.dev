@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Seth Rose - Portfolio
 
-## Getting Started
+A modern, responsive portfolio website built with Next.js, React 19, TypeScript, and Tailwind CSS 4.
 
-First, run the development server:
+## Overview
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+This portfolio showcases my professional experience, skills, and projects as a Senior ServiceNow Engineer & AI Solutions Consultant. The site features a clean, dark-themed design with a focus on readability and user experience.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Responsive Design**: Fully responsive layout that works on all devices
+- **Dark/Light Mode**: Theme toggle with system preference detection
+- **Modern UI**: Built with ShadCN UI components and Tailwind CSS 4
+- **Type-Safe**: Implemented with TypeScript for improved developer experience
+- **Performance Optimized**: Server components, image optimization, and efficient loading strategies
+- **Accessibility**: ARIA-compliant and keyboard navigable
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Tech Stack
 
-## Learn More
+- **Framework**: Next.js with React 19
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS 4
+- **UI Components**: ShadCN UI
+- **Theme System**: next-themes
+- **Icons**: Lucide React
+- **Deployment**: Vercel
 
-To learn more about Next.js, take a look at the following resources:
+## Sections
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Hero**: Introduction and social links
+- **Quick Insights**: Key highlights and metrics
+- **Work Experience**: Professional history and accomplishments
+- **Projects**: Showcase of notable projects
+- **Skills**: Technical and professional skills
+- **Education**: Academic background
+- **Contact**: Contact form and information
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Documentation
 
-## Deploy on Vercel
+Detailed documentation is available in the docs directory:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- [**Project Documentation Overview**](./docs/README.md): Main documentation index
+- [**Components Documentation**](./docs/components.md): UI components, usage examples, and props
+- [**Development Guide**](./docs/development.md): Setup instructions, workflow, and best practices
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Development
+
+### Prerequisites
+
+- Node.js (v18.17.0 or higher)
+- npm (v9.6.0 or higher)
+
+### Getting Started
+
+For detailed setup instructions, coding standards, and project structure, please refer to the [Development Guide](./docs/development.md).
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Contact
+
+Seth Rose - [hi@sethrose.dev](mailto:hi@sethrose.dev)
+
+Project Link: [https://github.com/yourusername/sethrosedev](https://github.com/yourusername/sethrosedev)

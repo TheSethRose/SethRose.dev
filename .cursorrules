@@ -1,0 +1,24 @@
+# NextJS React 19 Project Rules
+description: Rules for a NextJS project with React 19, TypeScript, ShadCN, and Tailwind 4
+auto_attach: true
+
+# Global rules that apply to the entire project
+global:
+  - Follow functional component patterns with React hooks
+  - Use TypeScript for type safety throughout the project
+  - Implement ShadCN UI components with Tailwind 4 styling
+  - Prefer async/await for asynchronous operations
+  - Implement comprehensive error handling
+  - Use descriptive variable names with auxiliary verbs where appropriate
+  - Omit semicolons in JavaScript/TypeScript files
+  - Use server components in NextJS where appropriate for better performance
+  - Wrap client components in Suspense with fallbacks for loading states
+  - Optimize images using WebP format and implement lazy loading
+  - Minimize global styles; prefer modular, scoped styles with Tailwind
+  - Follow clean code principles for readability and maintainability
+  - Use environment variables for configuration following NextJS best practices
+  - Never run npm commands that start the development server or build the project
+  - Suggest writing or updating tests when adding features or fixing bugs
+  - Update documentation to reflect code changes in the same pull request
+  - Document new components, API endpoints, and features according to established templates
+  - Only document features and components that actually exist in the project

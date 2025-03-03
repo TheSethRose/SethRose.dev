@@ -1,0 +1,19 @@
+description: Rules for React components in the project
+pattern: "**/*.tsx"
+exclude: "**/*.test.tsx"
+
+rules:
+  - Use functional components with hooks instead of class components
+  - Implement proper TypeScript typing for props and state
+  - Use destructuring for props and state variables
+  - Keep components focused on a single responsibility
+  - Extract reusable logic into custom hooks
+  - Use React.memo for performance optimization when appropriate
+  - Implement error boundaries for critical components
+  - Add JSDoc comments for complex components
+  - Use the 'use client' directive only when necessary for client components
+  - Wrap client components in Suspense with appropriate fallbacks
+  - Prefer controlled components over uncontrolled components
+  - Use ShadCN UI components when available instead of creating custom ones
+  - Implement proper accessibility attributes (aria-* attributes)
+  - Use semantic HTML elements whenever possible

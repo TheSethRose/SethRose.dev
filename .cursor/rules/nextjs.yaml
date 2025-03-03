@@ -1,0 +1,19 @@
+description: Rules for NextJS pages and layouts in the project
+pattern: "app/**/*.tsx"
+
+rules:
+  - Use server components by default for better performance
+  - Add 'use client' directive only when client-side interactivity is needed
+  - Implement proper metadata for SEO optimization
+  - Use NextJS's Image component for optimized image loading
+  - Implement proper error handling with error.tsx files
+  - Use loading.tsx files for Suspense boundaries
+  - Implement proper route handlers for API endpoints
+  - Use NextJS's Link component for client-side navigation
+  - Implement proper data fetching strategies (SSR, SSG, ISR)
+  - Use NextJS's font optimization features
+  - Implement proper caching strategies for data fetching
+  - Use route groups for organizing related routes
+  - Implement proper internationalization when needed
+  - Use NextJS's middleware for authentication and other cross-cutting concerns
+  - Follow the App Router conventions for file naming and directory structure

@@ -1,0 +1,20 @@
+description: Rules for documentation in the project
+pattern: "docs/**/*.md"
+
+rules:
+  - Keep documentation up-to-date with code changes
+  - Use Markdown for all documentation files
+  - Include code examples where appropriate
+  - Document both the "how" and the "why" of implementation decisions
+  - Use diagrams for complex concepts when needed
+  - Follow a simple, flat documentation structure with a single file per major topic
+  - Use consistent formatting and style throughout documentation
+  - Include links to related documentation
+  - Keep documentation concise and focused
+  - Use headings and subheadings to organize content
+  - Include a table of contents for longer documents
+  - Use code blocks with syntax highlighting for code examples
+  - Only document features and components that actually exist in the project
+  - Focus on documenting the UI components, theme system, and page structure
+  - Update documentation as part of the same pull request as code changes
+  - Prioritize clarity and usability over exhaustive documentation

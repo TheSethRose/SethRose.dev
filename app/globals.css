@@ -1,24 +1,233 @@
 @import "tailwindcss";
 
+/* Define custom colors using Tailwind v4 @theme directive */
 @theme {
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Primary: Cod Gray */
+  --color-cod-gray-50: #f6f6f6;
+  --color-cod-gray-100: #e7e7e7;
+  --color-cod-gray-200: #d1d1d1;
+  --color-cod-gray-300: #b0b0b0;
+  --color-cod-gray-400: #888888;
+  --color-cod-gray-500: #6d6d6d;
+  --color-cod-gray-600: #5d5d5d;
+  --color-cod-gray-700: #4f4f4f;
+  --color-cod-gray-800: #454545;
+  --color-cod-gray-900: #3d3d3d;
+  --color-cod-gray-950: #0a0a0a;
+
+  /* Secondary: Mine Shaft */
+  --color-mine-shaft-50: #f6f6f6;
+  --color-mine-shaft-100: #e7e7e7;
+  --color-mine-shaft-200: #d1d1d1;
+  --color-mine-shaft-300: #b0b0b0;
+  --color-mine-shaft-400: #888888;
+  --color-mine-shaft-500: #6d6d6d;
+  --color-mine-shaft-600: #5d5d5d;
+  --color-mine-shaft-700: #4f4f4f;
+  --color-mine-shaft-800: #454545;
+  --color-mine-shaft-900: #3d3d3d;
+  --color-mine-shaft-950: #2a2a2a;
+
+  /* Accent: Dodger Blue */
+  --color-dodger-blue-50: #edf9ff;
+  --color-dodger-blue-100: #d7f1ff;
+  --color-dodger-blue-200: #b9e8ff;
+  --color-dodger-blue-300: #88dbff;
+  --color-dodger-blue-400: #50c5ff;
+  --color-dodger-blue-500: #28a7ff;
+  --color-dodger-blue-600: #1e90ff;
+  --color-dodger-blue-700: #0a71eb;
+  --color-dodger-blue-800: #0f5abe;
+  --color-dodger-blue-900: #134e95;
+  --color-dodger-blue-950: #11305a;
 }
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* Keep the traditional directives for ShadCN UI compatibility */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* Light theme */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 4%;
+
+    --card: 0 0% 98%;
+    --card-foreground: 0 0% 4%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 4%;
+
+    --primary: 0 0% 4%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 0 0% 16%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+
+    --accent: 210 100% 56%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 210 100% 56%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    /* Dark theme - primarily dark colors with blue accent */
+    --background: 0 0% 4%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 4%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 16%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 0 0% 16%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 16%;
+    --muted-foreground: 0 0% 65%;
+
+    --accent: 210 100% 56%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 16%;
+    --input: 0 0% 16%;
+    --ring: 210 100% 56%;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  * {
+    @apply border-[hsl(var(--border))];
+  }
+  body {
+    @apply bg-[hsl(var(--background))] text-[hsl(var(--foreground))];
+  }
 }
+
+/* Simplified button styles with our color scheme */
+.btn-primary {
+  @apply bg-[var(--color-cod-gray-950)] text-white font-medium rounded-md transition-all duration-200 hover:bg-[var(--color-mine-shaft-950)];
+}
+
+.btn-secondary {
+  @apply bg-[var(--color-mine-shaft-950)] text-white font-medium rounded-md transition-all duration-200 hover:bg-[var(--color-mine-shaft-900)];
+}
+
+.btn-accent {
+  @apply bg-[var(--color-dodger-blue-600)] text-white font-medium rounded-md transition-all duration-200 hover:bg-[var(--color-dodger-blue-700)];
+}
+
+.btn-outline {
+  @apply bg-transparent border border-[var(--color-mine-shaft-950)] text-[var(--color-mine-shaft-100)] font-medium rounded-md transition-all duration-200 hover:bg-[var(--color-mine-shaft-950)] hover:text-white;
+}
+
+/* Card styles with our color scheme */
+.card-primary {
+  @apply rounded-lg bg-[var(--color-cod-gray-950)] border border-[var(--color-mine-shaft-950)] p-5;
+}
+
+.card-secondary {
+  @apply rounded-lg bg-[var(--color-mine-shaft-950)] border border-[var(--color-mine-shaft-900)] p-5;
+}
+
+.card-accent {
+  @apply rounded-lg bg-[var(--color-cod-gray-950)] border border-[var(--color-dodger-blue-600)] p-5;
+}
+
+/* Accent elements */
+.accent-text {
+  @apply text-[var(--color-dodger-blue-600)];
+}
+
+.accent-border {
+  @apply border-[var(--color-dodger-blue-600)];
+}
+
+.accent-bg {
+  @apply bg-[var(--color-dodger-blue-600)];
+}
+
+/* Original utility classes with updated colors */
+.container {
+  @apply mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl;
+}
+
+.insight {
+  @apply flex items-start gap-2 mb-4;
+}
+
+.insight span {
+  @apply font-semibold text-[var(--color-dodger-blue-600)];
+}
+
+.tag {
+  @apply inline-block px-2 py-1 mr-2 mb-2 text-xs rounded-md bg-[var(--color-mine-shaft-950)] text-white hover:bg-[var(--color-dodger-blue-600)] transition-colors;
+}
+
+.project-card {
+  @apply p-6 rounded-lg border border-[var(--color-mine-shaft-950)] bg-[var(--color-cod-gray-950)] text-white transition-all duration-300 hover:border-[var(--color-dodger-blue-600)];
+}
+
+.skill-card {
+  @apply p-6 rounded-lg border border-[var(--color-mine-shaft-950)] bg-[var(--color-cod-gray-950)] text-white transition-all duration-300 hover:border-[var(--color-dodger-blue-600)];
+}
+
+.section-title {
+  @apply text-4xl font-bold tracking-tight mb-2;
+}
+
+.section-subtitle {
+  @apply text-[var(--color-mine-shaft-300)] mb-8;
+}
+
+.section {
+  @apply py-12 md:py-16 border-t border-[var(--color-mine-shaft-950)];
+}
+
+.gradient-text {
+  @apply bg-gradient-to-r from-[var(--color-dodger-blue-600)] to-[var(--color-dodger-blue-400)] bg-clip-text text-transparent;
+}
+
+.skill-bar {
+  @apply h-2 rounded-full bg-[var(--color-mine-shaft-950)] overflow-hidden;
+}
+
+.skill-progress {
+  @apply h-full bg-[var(--color-dodger-blue-600)];
+}
+
+/* Additional styling for new elements */
+.certification-card {
+  @apply flex items-start p-4 border border-[var(--color-mine-shaft-950)] rounded-lg transition-all duration-300 hover:border-[var(--color-dodger-blue-600)];
+}
+
+.location-text {
+  @apply text-sm text-[var(--color-mine-shaft-400)] italic;
+}
+
+.timeline-connector {
+  @apply hidden md:block h-full w-0.5 mx-auto mt-4 bg-[var(--color-mine-shaft-950)];
+}
+
+.badge {
+  @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[var(--color-dodger-blue-600)]/20 text-[var(--color-dodger-blue-600)];
+}
+

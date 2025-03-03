@@ -1,0 +1,19 @@
+description: Rules for TypeScript files in the project
+pattern: "**/*.ts"
+exclude: "**/*.test.ts"
+
+rules:
+  - Use TypeScript's strict mode for maximum type safety
+  - Define explicit return types for functions
+  - Use interfaces for object shapes that will be implemented or extended
+  - Use type aliases for union types, intersection types, and tuple types
+  - Avoid using 'any' type; use 'unknown' when type is truly unknown
+  - Use type guards to narrow types when necessary
+  - Leverage TypeScript utility types (Partial, Required, Pick, etc.)
+  - Use readonly modifier for immutable properties
+  - Define enums for values that represent a specific set of options
+  - Use generics to create reusable components and functions
+  - Omit semicolons in accordance with project style
+  - Use async/await for asynchronous operations
+  - Implement proper error handling with try/catch blocks
+  - Use descriptive variable names with appropriate auxiliary verbs

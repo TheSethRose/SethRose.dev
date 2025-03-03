@@ -1,0 +1,18 @@
+description: Rules for CSS and Tailwind styling in the project
+pattern: "**/*.css"
+
+rules:
+  - Use Tailwind 4 utility classes for styling whenever possible
+  - Follow Tailwind's naming conventions for custom utilities
+  - Minimize global styles; prefer component-scoped styles
+  - Use CSS variables for theme colors and other design tokens
+  - Implement responsive design using Tailwind's breakpoint utilities
+  - Use the @layer directive to organize custom styles
+  - Implement dark mode support using Tailwind's dark variant
+  - Use modern CSS features like grid and flexbox for layouts
+  - Optimize for performance by minimizing CSS specificity
+  - Follow BEM naming convention for any custom CSS classes
+  - Use HSL color format for custom colors in accordance with Tailwind 4
+  - Implement proper z-index management using Tailwind's z-index utilities
+  - Ensure accessibility by using appropriate contrast ratios
+  - Use animation and transition utilities sparingly and purposefully

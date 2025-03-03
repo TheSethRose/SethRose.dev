@@ -1,0 +1,18 @@
+description: Rules for hooks and utility functions in the project
+pattern: "lib/**/*.ts"
+
+rules:
+  - Follow React's Rules of Hooks for custom hooks
+  - Prefix custom hooks with 'use'
+  - Keep hooks focused on a single responsibility
+  - Implement proper TypeScript typing for hook parameters and return values
+  - Use memoization (useMemo, useCallback) for performance optimization
+  - Implement proper cleanup in useEffect hooks
+  - Create pure utility functions without side effects
+  - Implement proper error handling in utility functions
+  - Use descriptive names for utility functions
+  - Add JSDoc comments for complex utility functions
+  - Write unit tests for all utility functions
+  - Use functional programming principles where appropriate
+  - Avoid using global state in utility functions
+  - Implement proper validation for function parameters

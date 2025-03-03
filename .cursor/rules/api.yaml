@@ -1,0 +1,19 @@
+description: Rules for API and data fetching in the project
+pattern: "app/api/**/*.ts"
+
+rules:
+  - Use NextJS's Route Handlers for API endpoints
+  - Implement proper error handling for API responses
+  - Use zod or similar libraries for request validation
+  - Implement proper HTTP status codes for responses
+  - Use async/await for asynchronous operations
+  - Implement proper authentication and authorization checks
+  - Use environment variables for API keys and secrets
+  - Implement rate limiting for public APIs
+  - Use proper CORS configuration
+  - Implement proper logging for API requests and errors
+  - Use HTTP methods appropriately (GET, POST, PUT, DELETE)
+  - Implement proper caching strategies
+  - Use proper content types for responses
+  - Implement proper pagination for list endpoints
+  - Follow RESTful API design principles
