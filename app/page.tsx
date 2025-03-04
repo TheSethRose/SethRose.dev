@@ -4,6 +4,7 @@ import { QuickInsights } from "@/components/quick-insights"
 import { WorkExperience } from "@/components/work-experience"
 import { Projects } from "@/components/projects"
 import { Skills } from "@/components/skills"
+import { Certifications } from "@/components/certifications"
 import { Contact } from "@/components/contact"
 import { Footer } from "@/components/footer"
 
@@ -18,6 +19,7 @@ export default function Home() {
           <WorkExperience />
           <Projects />
           <Skills />
+          <Certifications />
           <Contact />
         </main>
         <Footer />

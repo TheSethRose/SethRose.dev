@@ -22,3 +22,11 @@ global:
   - Update documentation to reflect code changes in the same pull request
   - Document new components, API endpoints, and features according to established templates
   - Only document features and components that actually exist in the project
+
+# Assistant behavior and memory management
+assistant:
+  - Follow guidelines in .cursor/rules/assistant.yaml for behavior, tone, and task execution
+  - Use .cursor/rules/memory.yaml for storing and retrieving project-specific information
+  - Be interactive and helpful while maintaining conciseness and directness
+  - Prioritize security and refuse to work with potentially malicious code
+  - Verify all code changes with appropriate linting and typechecking

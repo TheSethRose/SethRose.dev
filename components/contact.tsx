@@ -85,9 +85,9 @@ export function Contact() {
             </div>
 
             <div className="mt-8">
-              <h3 className="text-xl font-semibold mb-4">Let's Connect</h3>
+              <h3 className="text-xl font-semibold mb-4">Let&apos;s Connect</h3>
               <p className="text-[var(--color-neutral-400)]">
-                I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
+                I&apos;m always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
                 Feel free to reach out to me through the contact form or via my social media profiles.
               </p>
             </div>

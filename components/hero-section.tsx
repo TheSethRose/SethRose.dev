@@ -3,7 +3,6 @@ import { Github, Linkedin, Twitter, Mail, FileText } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
-import { cn } from "@/lib/utils"
 import { Typography } from "@/components/ui/typography"
 
 export function HeroSection() {
@@ -19,7 +18,7 @@ export function HeroSection() {
               Senior ServiceNow Engineer & AI Solutions Consultant
             </Typography>
             <Typography as="p" variant="subtle" className="mt-6 leading-relaxed">
-              I've spent over a decade cutting through the jargon to deliver straightforward, scalable solutions. My
+              I&apos;ve spent over a decade cutting through the jargon to deliver straightforward, scalable solutions. My
               career revolves around empowering teams to rethink the way they tackle complex problems, leveraging AI and
               automation to replace clunky processes with precision and simplicity. My focus is on delivering
               enterprise-grade solutions that are as functional as they are forward-thinking.

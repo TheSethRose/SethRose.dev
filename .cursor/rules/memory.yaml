@@ -1,0 +1,28 @@
+# Memory Configuration
+description: Stores frequently used commands, code style preferences, and codebase information
+auto_attach: true
+
+# Commands section for lint, typecheck, etc.
+commands:
+  lint: npm run lint
+  typecheck: npm run typecheck
+
+# Code style preferences
+style_preferences:
+  naming_convention: camelCase
+  component_structure: functional with hooks
+  preferred_libraries: ["lucide-react", "next", "react", "shadcn/ui", "tailwindcss"]
+  text_style: concise and consistent across components
+
+# Codebase structure and organization
+codebase_info:
+  project_structure: "Next.js app router with React 19, TypeScript, ShadCN UI, and Tailwind CSS 4"
+  key_directories: ["app", "components", "lib", "public"]
+  key_components:
+    - "SkillCard: Versatile card component with skill, project, list, and progress variants"
+    - "Skills: Component showcasing skills in a mosaic grid layout"
+    - "Projects: Component displaying GitHub projects in a mosaic grid layout"
+  layout_patterns:
+    - "Mosaic grid layout with large (2x2) and small (1x1) cards"
+    - "Consistent text sizing across components"
+    - "Responsive design with single column on mobile, multi-column on larger screens"
