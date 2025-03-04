@@ -1,170 +1,174 @@
-import { Code, Terminal, Cpu, Award } from "lucide-react"
+import { Code, Terminal, Cpu, Award, Zap, Database, Server, Globe, BrainCircuit, Shield, Wrench } from "lucide-react"
+import { Typography } from "@/components/ui/typography"
+import { SkillCard } from "@/components/ui/skill-card"
 
 export function Skills() {
+  // ServiceNow & Enterprise skills (most important)
+  const servicenowSkills = [
+    "ServiceNow Development",
+    "ITSM Implementation",
+    "Workflow Automation",
+    "System Integration",
+    "CMDB Configuration",
+    "Platform Administration",
+    "Service Portal"
+  ]
+
+  // AI & ML skills (growing importance)
+  const aiSkills = [
+    "LLM Integration",
+    "Agent Development",
+    "Reasoning Systems",
+    "LangChain",
+    "Llama Models",
+    "Prompt Engineering",
+    "NowAssist"
+  ]
+
+  // Programming languages
+  const programmingSkills = [
+    "Python",
+    "TypeScript",
+    "JavaScript",
+    "SQL",
+    "PowerShell"
+  ]
+
+  // Web development skills
+  const webSkills = [
+    "Next.js",
+    "React",
+    "Tailwind CSS",
+    "ShadCN UI",
+    "REST APIs",
+    "FastAPI"
+  ]
+
+  // DevOps & Tools
+  const devopsSkills = [
+    "Docker",
+    "Git",
+    "CI/CD",
+    "MCP",
+    "Ollama",
+    "Headless Browser"
+  ]
+
+  // Cloud & Infrastructure
+  const cloudSkills = [
+    "AWS",
+    "Azure",
+    "Google Cloud",
+    "Vercel",
+    "Netlify"
+  ]
+
+  // Certifications and awards
+  const certifications = [
+    { name: "Configure the CMDB (Micro-Certification)", issuer: "ServiceNow" },
+    { name: "Star Developer Super Badge", issuer: "Now Creator" },
+    { name: "Star Administrator Super Badge", issuer: "Now Creator" },
+    { name: "Star Business Process Analyst Super Badge", issuer: "Now Creator" }
+  ]
+
   return (
     <section id="skills" className="section">
-      <div className="container">
-        <h2 className="section-title">Skills</h2>
-        <p className="section-subtitle">Technologies and expertise I bring to the table</p>
+      <div className="mx-auto w-full max-w-5xl px-6 sm:px-8 md:px-12 lg:px-16">
+        <Typography as="h2" variant="sectionTitle">Skills</Typography>
+        <Typography as="p" variant="sectionSubtitle">Technologies and expertise I bring to the table</Typography>
 
-        <div className="mt-8 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {/* Technical Skills */}
-          <div className="skill-card">
-            <div className="flex items-center gap-3 mb-4">
-              <Code className="h-6 w-6 text-[var(--color-accent-600)]" />
-              <h3 className="text-xl font-semibold">Technical Skills</h3>
-            </div>
-            <ul className="space-y-2 text-[var(--color-neutral-400)]">
-              <li>• ServiceNow Development – Advanced scripting, workflow automation, and integrations</li>
-              <li>• AI & Machine Learning – Model integration, natural language processing, and automation</li>
-              <li>• API Development – RESTful services, backend optimizations, and system integrations</li>
-              <li>• Software Architecture – Scalable, high-performance application design</li>
-              <li>• Automation & Scripting – Python, JavaScript, TypeScript, and workflow automation</li>
-              <li>• ITSM – IT Service Management implementation and optimization</li>
-            </ul>
+        {/* Mosaic Skills Layout */}
+        <div className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-12">
+          {/* First Row */}
+          {/* ServiceNow Skills - Large card spanning 8 columns */}
+          <div className="md:col-span-8">
+            <SkillCard
+              title="ServiceNow & Enterprise"
+              icon={Server}
+              variant="skill"
+              skills={servicenowSkills}
+              size="large"
+            />
           </div>
 
-          {/* Programming Languages */}
-          <div className="skill-card">
-            <div className="flex items-center gap-3 mb-4">
-              <Terminal className="h-6 w-6 text-[var(--color-accent-600)]" />
-              <h3 className="text-xl font-semibold">Programming Languages</h3>
-            </div>
-            <div className="space-y-3">
-              <div>
-                <div className="flex items-center justify-between mb-1">
-                  <span>Python</span>
-                  <div className="w-32 h-2 bg-[var(--color-dark-800)] rounded-full overflow-hidden">
-                    <div className="h-full bg-[var(--color-accent-600)]" style={{ width: "90%" }}></div>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <div className="flex items-center justify-between mb-1">
-                  <span>JavaScript</span>
-                  <div className="w-32 h-2 bg-[var(--color-dark-800)] rounded-full overflow-hidden">
-                    <div className="h-full bg-[var(--color-accent-600)]" style={{ width: "85%" }}></div>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <div className="flex items-center justify-between mb-1">
-                  <span>TypeScript</span>
-                  <div className="w-32 h-2 bg-[var(--color-dark-800)] rounded-full overflow-hidden">
-                    <div className="h-full bg-[var(--color-accent-600)]" style={{ width: "80%" }}></div>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <div className="flex items-center justify-between mb-1">
-                  <span>SQL</span>
-                  <div className="w-32 h-2 bg-[var(--color-dark-800)] rounded-full overflow-hidden">
-                    <div className="h-full bg-[var(--color-accent-600)]" style={{ width: "75%" }}></div>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <div className="flex items-center justify-between mb-1">
-                  <span>PowerShell</span>
-                  <div className="w-32 h-2 bg-[var(--color-dark-800)] rounded-full overflow-hidden">
-                    <div className="h-full bg-[var(--color-accent-600)]" style={{ width: "70%" }}></div>
-                  </div>
-                </div>
-              </div>
-            </div>
+          {/* AI & ML Skills - Medium card spanning 4 columns */}
+          <div className="md:col-span-4">
+            <SkillCard
+              title="AI & Machine Learning"
+              icon={BrainCircuit}
+              variant="skill"
+              skills={aiSkills}
+              size="medium"
+            />
           </div>
 
-          {/* Tools & Platforms */}
-          <div className="skill-card">
-            <div className="flex items-center gap-3 mb-4">
-              <Cpu className="h-6 w-6 text-[var(--color-accent-600)]" />
-              <h3 className="text-xl font-semibold">Tools & Platforms</h3>
-            </div>
-            <div className="space-y-3">
-              <div>
-                <div className="flex items-center justify-between mb-1">
-                  <span>ServiceNow</span>
-                  <div className="w-32 h-2 bg-[var(--color-dark-800)] rounded-full overflow-hidden">
-                    <div className="h-full bg-[var(--color-accent-600)]" style={{ width: "95%" }}></div>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <div className="flex items-center justify-between mb-1">
-                  <span>LangChain</span>
-                  <div className="w-32 h-2 bg-[var(--color-dark-800)] rounded-full overflow-hidden">
-                    <div className="h-full bg-[var(--color-accent-600)]" style={{ width: "90%" }}></div>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <div className="flex items-center justify-between mb-1">
-                  <span>FastAPI</span>
-                  <div className="w-32 h-2 bg-[var(--color-dark-800)] rounded-full overflow-hidden">
-                    <div className="h-full bg-[var(--color-accent-600)]" style={{ width: "85%" }}></div>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <div className="flex items-center justify-between mb-1">
-                  <span>Docker</span>
-                  <div className="w-32 h-2 bg-[var(--color-dark-800)] rounded-full overflow-hidden">
-                    <div className="h-full bg-[var(--color-accent-600)]" style={{ width: "75%" }}></div>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <div className="flex items-center justify-between mb-1">
-                  <span>Git</span>
-                  <div className="w-32 h-2 bg-[var(--color-dark-800)] rounded-full overflow-hidden">
-                    <div className="h-full bg-[var(--color-accent-600)]" style={{ width: "85%" }}></div>
-                  </div>
-                </div>
-              </div>
-            </div>
+          {/* Second Row */}
+          {/* Programming Languages - Small card spanning 4 columns */}
+          <div className="md:col-span-4">
+            <SkillCard
+              title="Programming Languages"
+              icon={Terminal}
+              variant="skill"
+              skills={programmingSkills}
+              size="small"
+            />
+          </div>
+
+          {/* Web Development - Medium card spanning 4 columns */}
+          <div className="md:col-span-4">
+            <SkillCard
+              title="Web Development"
+              icon={Globe}
+              variant="skill"
+              skills={webSkills}
+              size="medium"
+            />
+          </div>
+
+          {/* DevOps & Tools - Medium card spanning 4 columns */}
+          <div className="md:col-span-4">
+            <SkillCard
+              title="DevOps & Tools"
+              icon={Wrench}
+              variant="skill"
+              skills={devopsSkills}
+              size="medium"
+            />
+          </div>
+
+          {/* Third Row */}
+          {/* Cloud & Infrastructure - Small card spanning 4 columns */}
+          <div className="md:col-span-4 md:col-start-5">
+            <SkillCard
+              title="Cloud & Infrastructure"
+              icon={Zap}
+              variant="skill"
+              skills={cloudSkills}
+              size="small"
+            />
           </div>
         </div>
 
         {/* Certifications */}
-        <div className="mt-12">
-          <h3 className="text-2xl font-bold mb-6">Certifications & Awards</h3>
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            <div className="flex items-start p-4 border border-[var(--color-dark-800)] rounded-lg bg-[var(--color-dark-900)]">
-              <div className="p-2 rounded-full bg-[var(--color-dark-800)] mr-4 mt-0.5">
-                <Award className="h-5 w-5 text-[var(--color-accent-600)]" />
+        <div className="mt-16">
+          <Typography as="h3" variant="h3" className="mb-6">Certifications & Awards</Typography>
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {certifications.map((cert, index) => (
+              <div
+                key={index}
+                className="rounded-lg border border-[var(--color-dark-800)] bg-[var(--color-dark-900)]/30 p-4 transition-all duration-300 hover:border-[var(--color-dark-700)] hover:bg-[var(--color-dark-900)]/50 hover:shadow-md hover:translate-y-[-2px]"
+              >
+                <div className="flex items-start">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[var(--color-dark-800)] text-[var(--color-accent-600)] mr-3 transition-colors duration-300 group-hover:bg-[var(--color-dark-700)]">
+                    <Award className="h-4 w-4" />
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-medium text-[var(--color-neutral-200)]">{cert.name}</h4>
+                    <p className="text-xs text-[var(--color-neutral-400)] mt-1">{cert.issuer}</p>
+                  </div>
+                </div>
               </div>
-              <div>
-                <p className="font-medium">Configure the CMDB (Micro-Certification)</p>
-                <p className="text-sm text-[var(--color-neutral-400)]">ServiceNow</p>
-              </div>
-            </div>
-            <div className="flex items-start p-4 border border-[var(--color-dark-800)] rounded-lg bg-[var(--color-dark-900)]">
-              <div className="p-2 rounded-full bg-[var(--color-dark-800)] mr-4 mt-0.5">
-                <Award className="h-5 w-5 text-[var(--color-accent-600)]" />
-              </div>
-              <div>
-                <p className="font-medium">Star Developer Super Badge</p>
-                <p className="text-sm text-[var(--color-neutral-400)]">Now Creator</p>
-              </div>
-            </div>
-            <div className="flex items-start p-4 border border-[var(--color-dark-800)] rounded-lg bg-[var(--color-dark-900)]">
-              <div className="p-2 rounded-full bg-[var(--color-dark-800)] mr-4 mt-0.5">
-                <Award className="h-5 w-5 text-[var(--color-accent-600)]" />
-              </div>
-              <div>
-                <p className="font-medium">Star Administrator Super Badge</p>
-                <p className="text-sm text-[var(--color-neutral-400)]">Now Creator</p>
-              </div>
-            </div>
-            <div className="flex items-start p-4 border border-[var(--color-dark-800)] rounded-lg bg-[var(--color-dark-900)]">
-              <div className="p-2 rounded-full bg-[var(--color-dark-800)] mr-4 mt-0.5">
-                <Award className="h-5 w-5 text-[var(--color-accent-600)]" />
-              </div>
-              <div>
-                <p className="font-medium">Star Business Process Analyst Super Badge</p>
-                <p className="text-sm text-[var(--color-neutral-400)]">Now Creator</p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>

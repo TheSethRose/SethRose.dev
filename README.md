@@ -50,6 +50,45 @@ Detailed documentation is available in the docs directory:
 - Node.js (v18.17.0 or higher)
 - npm (v9.6.0 or higher)
 
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/TheSethRose/SethRose.dev.git
+
+# Navigate to the project directory
+cd SethRose.dev
+
+# Install dependencies
+npm install
+```
+
+### Development Commands
+
+```bash
+# Start the development server
+npm run dev
+
+# Run linting
+npm run lint
+
+# Run type checking
+npm run typecheck
+
+# Format code with Prettier
+npm run format
+```
+
+### Build Commands
+
+```bash
+# Build for production
+npm run build
+
+# Start the production server
+npm run start
+```
+
 ### Getting Started
 
 For detailed setup instructions, coding standards, and project structure, please refer to the [Development Guide](./docs/development.md).

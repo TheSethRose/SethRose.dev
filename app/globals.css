@@ -44,11 +44,6 @@
   }
 }
 
-/* Tailwind 4 directives */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @layer base {
   :root {
     /* Light theme - updated to use more neutral grays with slight blue undertone */
@@ -247,40 +242,38 @@
   }
 
   .location-text {
-    @apply text-sm text-[var(--color-neutral-500)] italic;
+    @apply text-sm text-[var(--color-neutral-400)] flex items-center gap-1.5;
   }
 
   .timeline-connector {
-    @apply hidden md:block h-full w-0.5 mx-auto mt-4 bg-gradient-to-b from-[var(--color-accent-700)] to-[var(--color-dark-800)];
+    @apply absolute left-4 top-0 bottom-0 w-px bg-[var(--color-dark-700)];
   }
 
   .badge {
-    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[var(--color-accent-700)]/20 text-[var(--color-accent-500)] border border-[var(--color-accent-700)]/30;
+    @apply inline-flex items-center rounded-full bg-[var(--color-dark-800)]/80 px-2.5 py-0.5 text-xs font-medium text-[var(--color-neutral-300)] transition-colors hover:bg-[var(--color-dark-700)] hover:text-white;
   }
 
-  /* Header specific styling */
   .header-nav-link {
-    @apply text-sm font-medium transition-colors hover:text-[var(--color-accent-500)] relative px-1 py-2;
+    @apply relative text-[var(--color-neutral-300)] hover:text-white transition-colors duration-200 px-3 py-2;
   }
 
   .header-nav-link::after {
     content: "";
-    @apply absolute left-0 bottom-[-1px] w-0 h-[2px] bg-[var(--color-accent-700)] transition-all duration-300;
+    @apply absolute left-0 right-0 bottom-0 h-0.5 bg-[var(--color-accent-600)] scale-x-0 transition-transform duration-200 origin-bottom-right;
   }
 
   .header-nav-link:hover::after {
-    @apply w-full;
+    @apply scale-x-100 origin-bottom-left;
   }
 
-  /* Social media buttons with hover effects */
   .social-button {
-    @apply rounded-full p-2.5 transition-all duration-300 bg-[var(--color-dark-800)] hover:bg-[var(--color-accent-700)] text-[var(--color-neutral-200)] hover:text-white hover:scale-110 shadow-sm;
+    @apply flex items-center justify-center h-10 w-10 rounded-full bg-[var(--color-dark-800)] text-[var(--color-neutral-300)] hover:bg-[var(--color-dark-700)] hover:text-white transition-all duration-200 hover:scale-110;
   }
-}
 
-/* Animations in utilities layer */
-@layer utilities {
-  /* Animated skill bars */
+  .social-button svg {
+    @apply h-5 w-5;
+  }
+
   .animated-skill-bar .skill-progress {
     animation: skillProgress 1.5s ease-out forwards;
     transform-origin: left;
@@ -288,17 +281,20 @@
   }
 
   @keyframes skillProgress {
-    from { transform: scaleX(0); }
-    to { transform: scaleX(1); }
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
   }
 
-  /* Spacing utilities */
   .content-spacing {
-    @apply space-y-8;
+    @apply space-y-6 md:space-y-8;
   }
 
   .section-spacing {
-    @apply space-y-24;
+    @apply space-y-16 md:space-y-24;
   }
 }
 

@@ -1,0 +1,27 @@
+[tools]
+node = "20.12.1"
+pnpm = "10.5.2"
+
+[env]
+NEXT_TELEMETRY_DISABLED = "1"
+NODE_ENV = "development"
+
+[tasks]
+dev = { run = "pnpm dev", description = "Start the development server with Turbopack" }
+build = { run = "pnpm build", env = { NODE_ENV = "production" }, description = "Build the production application" }
+start = { run = "pnpm start", env = { NODE_ENV = "production" }, description = "Start the production server" }
+lint = { run = "pnpm lint", description = "Run ESLint to check code quality" }
+clean = { run = "rm -rf .next node_modules pnpm-lock.yaml", description = "Clean build artifacts and dependencies" }
+install = { run = "pnpm install", description = "Install dependencies" }
+update = { run = "pnpm update", description = "Update dependencies to their latest versions" }
+typecheck = { run = "pnpm tsc --noEmit", description = "Check TypeScript types" }
+format = { run = "pnpm prettier --write .", description = "Format code with Prettier" }
+fix-deps = { run = "pnpm install --force", description = "Force install dependencies to fix peer dependency issues" }
+override-deps = { run = "pnpm install --no-strict-peer-dependencies", description = "Install dependencies ignoring peer dependency requirements" }
+override-peer-deps = { run = "pnpm install --legacy-peer-deps", description = "Install dependencies with legacy peer dependencies for React 19 compatibility" }
+fix-all = { run = "rm -rf node_modules .next pnpm-lock.yaml && pnpm install --no-strict-peer-dependencies", description = "Fix all dependency issues in one go" }
+fix-and-dev = { run = "mise run fix-all && pnpm dev", description = "Fix all dependency issues and start the development server" }
+
+[settings]
+legacy_version_file = true
+experimental = true
