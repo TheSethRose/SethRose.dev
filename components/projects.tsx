@@ -21,11 +21,11 @@ export function Projects() {
                   rel="noopener noreferrer"
                   aria-label="GitHub repository"
                 >
-                  <Github className="h-5 w-5 text-primary" />
+                  <Github className="h-5 w-5 text-[var(--color-accent-600)]" />
                 </Link>
               </div>
             </div>
-            <p className="text-muted-foreground mb-4">
+            <p className="text-[var(--color-neutral-400)] mb-4">
               A Python-based web scraper that collects and updates programming documentation for multiple languages,
               accessible via API or local MCP servers.
             </p>
@@ -49,11 +49,11 @@ export function Projects() {
                   rel="noopener noreferrer"
                   aria-label="GitHub repository"
                 >
-                  <Github className="h-5 w-5 text-primary" />
+                  <Github className="h-5 w-5 text-[var(--color-accent-600)]" />
                 </Link>
               </div>
             </div>
-            <p className="text-muted-foreground mb-4">
+            <p className="text-[var(--color-neutral-400)] mb-4">
               A Model Context Protocol server designed for AI agents to retrieve structured technical data in real-time.
             </p>
             <div className="mt-4">
@@ -74,11 +74,11 @@ export function Projects() {
                   rel="noopener noreferrer"
                   aria-label="GitHub repository"
                 >
-                  <Github className="h-5 w-5 text-primary" />
+                  <Github className="h-5 w-5 text-[var(--color-accent-600)]" />
                 </Link>
               </div>
             </div>
-            <p className="text-muted-foreground mb-4">
+            <p className="text-[var(--color-neutral-400)] mb-4">
               Developed an API interface that integrates ServiceNow with Google DialogFlow, enriching customer
               interactions through advanced natural language processing.
             </p>
@@ -92,7 +92,7 @@ export function Projects() {
         </div>
 
         <div className="mt-8 flex justify-center">
-          <Button asChild variant="outline">
+          <Button asChild variant="outline" className="border-[var(--color-dark-700)] hover:border-[var(--color-accent-700)] hover:bg-[var(--color-dark-800)]">
             <Link href="https://github.com/sponsors/TheSethRose" target="_blank" rel="noopener noreferrer">
               View all projects
             </Link>

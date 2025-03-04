@@ -11,10 +11,10 @@ export function WorkExperience() {
           {/* Experience 1 */}
           <div className="flex flex-col md:flex-row gap-6">
             <div className="flex md:flex-col items-center">
-              <div className="p-4 rounded-full border-2 border-primary">
-                <Briefcase className="h-6 w-6 text-primary" />
+              <div className="p-4 rounded-full border-2 border-[var(--color-accent-600)]">
+                <Briefcase className="h-6 w-6 text-[var(--color-accent-600)]" />
               </div>
-              <div className="hidden md:block h-full w-0.5 mx-auto mt-4 bg-border"></div>
+              <div className="hidden md:block h-full w-0.5 mx-auto mt-4 bg-[var(--color-dark-700)]"></div>
             </div>
 
             <div className="flex-1">
@@ -23,13 +23,13 @@ export function WorkExperience() {
               </div>
 
               <div className="mt-2">
-                <p className="text-sm font-bold text-muted-foreground">
+                <p className="text-sm font-bold text-[var(--color-neutral-400)]">
                   General Dynamics Information Technology (GDIT) • Full-time
                 </p>
-                <p className="text-sm text-muted-foreground">November 2020 — Present</p>
+                <p className="text-sm text-[var(--color-neutral-400)]">November 2020 — Present</p>
               </div>
 
-              <div className="mt-4 space-y-2">
+              <div className="mt-4 space-y-2 text-[var(--color-neutral-300)]">
                 <p>
                   • Manage the ServiceNow platform with skill, focusing on service automation, system integrations, and
                   bespoke product development.
@@ -61,10 +61,10 @@ export function WorkExperience() {
           {/* Experience 2 */}
           <div className="flex flex-col md:flex-row gap-6">
             <div className="flex md:flex-col items-center">
-              <div className="p-4 rounded-full border-2 border-primary">
-                <Briefcase className="h-6 w-6 text-primary" />
+              <div className="p-4 rounded-full border-2 border-[var(--color-accent-600)]">
+                <Briefcase className="h-6 w-6 text-[var(--color-accent-600)]" />
               </div>
-              <div className="hidden md:block h-full w-0.5 mx-auto mt-4 bg-border"></div>
+              <div className="hidden md:block h-full w-0.5 mx-auto mt-4 bg-[var(--color-dark-700)]"></div>
             </div>
 
             <div className="flex-1">
@@ -73,12 +73,12 @@ export function WorkExperience() {
               </div>
 
               <div className="mt-2">
-                <p className="text-sm font-bold text-muted-foreground">Toyota North America • Full-time</p>
-                <p className="text-sm text-muted-foreground">March 2019 — November 2020</p>
-                <p className="text-sm text-muted-foreground">Plano, Texas, United States</p>
+                <p className="text-sm font-bold text-[var(--color-neutral-400)]">Toyota North America • Full-time</p>
+                <p className="text-sm text-[var(--color-neutral-400)]">March 2019 — November 2020</p>
+                <p className="text-sm text-[var(--color-neutral-400)]">Plano, Texas, United States</p>
               </div>
 
-              <div className="mt-4 space-y-2">
+              <div className="mt-4 space-y-2 text-[var(--color-neutral-300)]">
                 <p>
                   • Served as a ServiceNow Developer for Cybersecurity & Risk Management Division at Toyota Motors North
                   America.
@@ -110,8 +110,8 @@ export function WorkExperience() {
           {/* Experience 3 */}
           <div className="flex flex-col md:flex-row gap-6">
             <div className="flex md:flex-col items-center">
-              <div className="p-4 rounded-full border-2 border-primary">
-                <Briefcase className="h-6 w-6 text-primary" />
+              <div className="p-4 rounded-full border-2 border-[var(--color-accent-600)]">
+                <Briefcase className="h-6 w-6 text-[var(--color-accent-600)]" />
               </div>
             </div>
 
@@ -121,12 +121,12 @@ export function WorkExperience() {
               </div>
 
               <div className="mt-2">
-                <p className="text-sm font-bold text-muted-foreground">Uber Freight • Full-time</p>
-                <p className="text-sm text-muted-foreground">June 2015 — March 2019</p>
-                <p className="text-sm text-muted-foreground">Frisco, Texas, United States</p>
+                <p className="text-sm font-bold text-[var(--color-neutral-400)]">Uber Freight • Full-time</p>
+                <p className="text-sm text-[var(--color-neutral-400)]">June 2015 — March 2019</p>
+                <p className="text-sm text-[var(--color-neutral-400)]">Frisco, Texas, United States</p>
               </div>
 
-              <div className="mt-4 space-y-2">
+              <div className="mt-4 space-y-2 text-[var(--color-neutral-300)]">
                 <p>• Spearheaded the successful company-wide development and implementation of the ITSM Module.</p>
                 <p>
                   • Expertly provided general support, administration, and maintenance of the ServiceNow platform

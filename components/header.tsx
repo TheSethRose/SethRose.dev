@@ -7,86 +7,103 @@ import { ThemeToggle } from "@/components/theme-toggle"
 import { Button } from "@/components/ui/button"
 
 export function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen)
-  }
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 items-center justify-between">
-        <div className="flex items-center gap-2">&nbsp;</div>
+    <header className="sticky top-0 z-50 w-full border-b backdrop-blur-sm bg-[var(--color-dark-950)]/95 shadow-md">
+      <div className="mx-auto w-full max-w-5xl px-6 sm:px-8 md:px-12 lg:px-16">
+        <div className="flex h-16 items-center justify-between">
+          <div className="flex items-center">
+            <ThemeToggle />
+          </div>
 
-        <div className="hidden md:flex items-center gap-6">
-          <nav className="flex gap-6">
-            <Link href="#about" className="text-sm font-medium transition-colors hover:text-primary">
-              About
+          <nav className="hidden md:flex items-center space-x-6">
+            <Link href="#" className="header-nav-link">
+              Home
             </Link>
-            <Link href="#experience" className="text-sm font-medium transition-colors hover:text-primary">
+            <Link href="#work-experience" className="header-nav-link">
               Experience
             </Link>
-            <Link href="#projects" className="text-sm font-medium transition-colors hover:text-primary">
+            <Link href="#projects" className="header-nav-link">
               Projects
             </Link>
-            <Link href="#skills" className="text-sm font-medium transition-colors hover:text-primary">
+            <Link href="#skills" className="header-nav-link">
               Skills
             </Link>
-            <Link href="#contact" className="text-sm font-medium transition-colors hover:text-primary">
+            <Link href="#education" className="header-nav-link">
+              Education
+            </Link>
+            <Link href="#contact" className="header-nav-link">
               Contact
             </Link>
           </nav>
-          <ThemeToggle />
-        </div>
 
-        <div className="flex md:hidden items-center gap-4">
-          <ThemeToggle />
-          <Button variant="ghost" size="icon" onClick={toggleMenu} className="md:hidden">
-            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </Button>
+          <div className="md:hidden flex items-center">
+            <button
+              type="button"
+              className="rounded-md p-2 text-white hover:bg-[var(--color-dark-800)] transition-colors"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            >
+              <span className="sr-only">Open main menu</span>
+              {mobileMenuOpen ? (
+                <X className="h-6 w-6" aria-hidden="true" />
+              ) : (
+                <Menu className="h-6 w-6" aria-hidden="true" />
+              )}
+            </button>
+          </div>
         </div>
       </div>
 
       {/* Mobile menu */}
-      {isMenuOpen && (
-        <div className="md:hidden border-b border-border">
-          <nav className="flex flex-col space-y-4 p-4">
-            <Link
-              href="#about"
-              className="text-sm font-medium transition-colors hover:text-primary"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              About
-            </Link>
-            <Link
-              href="#experience"
-              className="text-sm font-medium transition-colors hover:text-primary"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Experience
-            </Link>
-            <Link
-              href="#projects"
-              className="text-sm font-medium transition-colors hover:text-primary"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Projects
-            </Link>
-            <Link
-              href="#skills"
-              className="text-sm font-medium transition-colors hover:text-primary"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Skills
-            </Link>
-            <Link
-              href="#contact"
-              className="text-sm font-medium transition-colors hover:text-primary"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Contact
-            </Link>
-          </nav>
+      {mobileMenuOpen && (
+        <div className="md:hidden border-t border-[var(--color-dark-800)] bg-[var(--color-dark-950)]/95 shadow-lg">
+          <div className="mx-auto w-full max-w-5xl px-6 sm:px-8 md:px-12 lg:px-16">
+            <div className="space-y-1 py-4">
+              <Link
+                href="#"
+                className="block py-2 header-nav-link"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Home
+              </Link>
+              <Link
+                href="#work-experience"
+                className="block py-2 header-nav-link"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Experience
+              </Link>
+              <Link
+                href="#projects"
+                className="block py-2 header-nav-link"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Projects
+              </Link>
+              <Link
+                href="#skills"
+                className="block py-2 header-nav-link"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Skills
+              </Link>
+              <Link
+                href="#education"
+                className="block py-2 header-nav-link"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Education
+              </Link>
+              <Link
+                href="#contact"
+                className="block py-2 header-nav-link"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Contact
+              </Link>
+            </div>
+          </div>
         </div>
       )}
     </header>

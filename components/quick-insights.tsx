@@ -9,7 +9,7 @@ export function QuickInsights() {
 
         <div className="mt-8 grid gap-6">
           <div className="insight">
-            <ArrowRight className="h-6 w-6 shrink-0 mt-0.5 text-primary" />
+            <ArrowRight className="h-6 w-6 shrink-0 mt-0.5 text-[var(--color-accent-600)]" />
             <p>
               <span>Senior ServiceNow Engineer at General Dynamics IT (GDIT)</span> – Government contractor specializing
               in ServiceNow development and service automation.
@@ -17,7 +17,7 @@ export function QuickInsights() {
           </div>
 
           <div className="insight">
-            <ArrowRight className="h-6 w-6 shrink-0 mt-0.5 text-primary" />
+            <ArrowRight className="h-6 w-6 shrink-0 mt-0.5 text-[var(--color-accent-600)]" />
             <p>
               <span>AI Solutions Consultant</span> – Developing AI-driven solutions to enhance decision-making and
               unlock operational efficiencies.
@@ -25,7 +25,7 @@ export function QuickInsights() {
           </div>
 
           <div className="insight">
-            <ArrowRight className="h-6 w-6 shrink-0 mt-0.5 text-primary" />
+            <ArrowRight className="h-6 w-6 shrink-0 mt-0.5 text-[var(--color-accent-600)]" />
             <p>
               <span>Natural Language Processing & LLMs</span> – Implementing NLP and large language models to deliver
               user-first innovations.
@@ -33,7 +33,7 @@ export function QuickInsights() {
           </div>
 
           <div className="insight">
-            <ArrowRight className="h-6 w-6 shrink-0 mt-0.5 text-primary" />
+            <ArrowRight className="h-6 w-6 shrink-0 mt-0.5 text-[var(--color-accent-600)]" />
             <p>
               <span>Full-Stack Development</span> – Building scalable, API-driven systems with Python, JavaScript,
               TypeScript, React, Next.js, and Docker.
@@ -41,7 +41,7 @@ export function QuickInsights() {
           </div>
 
           <div className="insight">
-            <ArrowRight className="h-6 w-6 shrink-0 mt-0.5 text-primary" />
+            <ArrowRight className="h-6 w-6 shrink-0 mt-0.5 text-[var(--color-accent-600)]" />
             <p>
               <span>Technical Leadership</span> – Guiding technical discussions and mentoring junior developers,
               nurturing a culture of growth and innovation.

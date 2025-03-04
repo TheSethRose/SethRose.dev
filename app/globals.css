@@ -1,115 +1,117 @@
 @import "tailwindcss";
 
-/* Define custom colors using Tailwind v4 @theme directive */
-@theme {
-  /* Primary: Cod Gray */
-  --color-cod-gray-50: #f6f6f6;
-  --color-cod-gray-100: #e7e7e7;
-  --color-cod-gray-200: #d1d1d1;
-  --color-cod-gray-300: #b0b0b0;
-  --color-cod-gray-400: #888888;
-  --color-cod-gray-500: #6d6d6d;
-  --color-cod-gray-600: #5d5d5d;
-  --color-cod-gray-700: #4f4f4f;
-  --color-cod-gray-800: #454545;
-  --color-cod-gray-900: #3d3d3d;
-  --color-cod-gray-950: #0a0a0a;
+/* Modern color palette using HSL values for better readability and maintainability */
+@layer base {
+  :root {
+    /* Primary colors - dark slate with gray undertones (removed blue tint) */
+    --color-dark-50: hsl(220, 10%, 98%);
+    --color-dark-100: hsl(220, 10%, 95%);
+    --color-dark-200: hsl(220, 10%, 91%);
+    --color-dark-300: hsl(220, 10%, 80%);
+    --color-dark-400: hsl(220, 10%, 65%);
+    --color-dark-500: hsl(220, 10%, 50%);
+    --color-dark-600: hsl(220, 10%, 35%);
+    --color-dark-700: hsl(220, 10%, 25%);
+    --color-dark-800: hsl(220, 10%, 18%);
+    --color-dark-900: hsl(220, 10%, 12%);
+    --color-dark-950: hsl(220, 10%, 7%);
 
-  /* Secondary: Mine Shaft */
-  --color-mine-shaft-50: #f6f6f6;
-  --color-mine-shaft-100: #e7e7e7;
-  --color-mine-shaft-200: #d1d1d1;
-  --color-mine-shaft-300: #b0b0b0;
-  --color-mine-shaft-400: #888888;
-  --color-mine-shaft-500: #6d6d6d;
-  --color-mine-shaft-600: #5d5d5d;
-  --color-mine-shaft-700: #4f4f4f;
-  --color-mine-shaft-800: #454545;
-  --color-mine-shaft-900: #3d3d3d;
-  --color-mine-shaft-950: #2a2a2a;
+    /* Secondary colors - neutral grays */
+    --color-neutral-50: hsl(220, 5%, 98%);
+    --color-neutral-100: hsl(220, 5%, 95%);
+    --color-neutral-200: hsl(220, 5%, 90%);
+    --color-neutral-300: hsl(220, 5%, 80%);
+    --color-neutral-400: hsl(220, 5%, 65%);
+    --color-neutral-500: hsl(220, 5%, 50%);
+    --color-neutral-600: hsl(220, 5%, 35%);
+    --color-neutral-700: hsl(220, 5%, 25%);
+    --color-neutral-800: hsl(220, 5%, 18%);
+    --color-neutral-900: hsl(220, 5%, 12%);
+    --color-neutral-950: hsl(220, 5%, 7%);
 
-  /* Accent: Dodger Blue */
-  --color-dodger-blue-50: #edf9ff;
-  --color-dodger-blue-100: #d7f1ff;
-  --color-dodger-blue-200: #b9e8ff;
-  --color-dodger-blue-300: #88dbff;
-  --color-dodger-blue-400: #50c5ff;
-  --color-dodger-blue-500: #28a7ff;
-  --color-dodger-blue-600: #1e90ff;
-  --color-dodger-blue-700: #0a71eb;
-  --color-dodger-blue-800: #0f5abe;
-  --color-dodger-blue-900: #134e95;
-  --color-dodger-blue-950: #11305a;
+    /* Accent colors - muted blue with slight desaturation for a more sophisticated look */
+    --color-accent-50: hsl(210, 70%, 98%);
+    --color-accent-100: hsl(210, 70%, 95%);
+    --color-accent-200: hsl(210, 70%, 90%);
+    --color-accent-300: hsl(210, 70%, 80%);
+    --color-accent-400: hsl(210, 70%, 70%);
+    --color-accent-500: hsl(210, 70%, 60%);
+    --color-accent-600: hsl(210, 70%, 50%);
+    --color-accent-700: hsl(210, 70%, 40%);
+    --color-accent-800: hsl(210, 70%, 30%);
+    --color-accent-900: hsl(210, 70%, 20%);
+    --color-accent-950: hsl(210, 70%, 10%);
+  }
 }
 
-/* Keep the traditional directives for ShadCN UI compatibility */
+/* Tailwind 4 directives */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    /* Light theme */
-    --background: 0 0% 100%;
-    --foreground: 0 0% 4%;
+    /* Light theme - updated to use more neutral grays with slight blue undertone */
+    --background: 220 5% 100%;
+    --foreground: 220 10% 7%;
 
-    --card: 0 0% 98%;
-    --card-foreground: 0 0% 4%;
+    --card: 220 5% 98%;
+    --card-foreground: 220 10% 7%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 4%;
+    --popover: 220 5% 100%;
+    --popover-foreground: 220 10% 7%;
 
-    --primary: 0 0% 4%;
-    --primary-foreground: 0 0% 98%;
+    --primary: 210 70% 50%;
+    --primary-foreground: 220 5% 98%;
 
-    --secondary: 0 0% 16%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 220 10% 18%;
+    --secondary-foreground: 220 5% 98%;
 
-    --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 45%;
+    --muted: 220 5% 96%;
+    --muted-foreground: 220 5% 45%;
 
-    --accent: 210 100% 56%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 210 70% 50%;
+    --accent-foreground: 220 5% 98%;
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: 0 70% 60%;
+    --destructive-foreground: 220 5% 98%;
 
-    --border: 0 0% 90%;
-    --input: 0 0% 90%;
-    --ring: 210 100% 56%;
+    --border: 220 10% 91%;
+    --input: 220 10% 91%;
+    --ring: 210 70% 50%;
 
     --radius: 0.5rem;
   }
 
   .dark {
-    /* Dark theme - primarily dark colors with blue accent */
-    --background: 0 0% 4%;
-    --foreground: 0 0% 98%;
+    /* Dark theme - refined with more Gotham-inspired dark grays */
+    --background: 220 10% 7%;
+    --foreground: 220 5% 98%;
 
-    --card: 0 0% 7%;
-    --card-foreground: 0 0% 98%;
+    --card: 220 10% 10%;
+    --card-foreground: 220 5% 98%;
 
-    --popover: 0 0% 4%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 220 10% 7%;
+    --popover-foreground: 220 5% 98%;
 
-    --primary: 0 0% 16%;
-    --primary-foreground: 0 0% 98%;
+    --primary: 210 70% 50%;
+    --primary-foreground: 220 5% 98%;
 
-    --secondary: 0 0% 16%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 220 10% 18%;
+    --secondary-foreground: 220 5% 98%;
 
-    --muted: 0 0% 16%;
-    --muted-foreground: 0 0% 65%;
+    --muted: 220 10% 15%;
+    --muted-foreground: 220 5% 75%;
 
-    --accent: 210 100% 56%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 210 70% 50%;
+    --accent-foreground: 220 5% 98%;
 
     --destructive: 0 63% 31%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive-foreground: 220 5% 98%;
 
-    --border: 0 0% 16%;
-    --input: 0 0% 16%;
-    --ring: 210 100% 56%;
+    --border: 220 10% 15%;
+    --input: 220 10% 15%;
+    --ring: 210 70% 50%;
   }
 }
 
@@ -119,115 +121,163 @@
   }
   body {
     @apply bg-[hsl(var(--background))] text-[hsl(var(--foreground))];
+    background-image: radial-gradient(
+      circle at top right,
+      hsla(210, 70%, 30%, 0.05),
+      transparent 40%
+    );
+    background-attachment: fixed;
   }
 }
 
-/* Simplified button styles with our color scheme */
-.btn-primary {
-  @apply bg-[var(--color-cod-gray-950)] text-white font-medium rounded-md transition-all duration-200 hover:bg-[var(--color-mine-shaft-950)];
+/* Modern component styles using @layer components for better organization */
+@layer components {
+  /* Button styles */
+  .btn-primary {
+    @apply bg-[var(--color-accent-600)] text-white font-medium rounded-md transition-all duration-200 hover:bg-[var(--color-accent-700)] shadow-sm hover:shadow-md;
+  }
+
+  .btn-secondary {
+    @apply bg-[var(--color-dark-800)] text-white font-medium rounded-md transition-all duration-200 hover:bg-[var(--color-dark-700)] shadow-sm hover:shadow-md;
+  }
+
+  .btn-accent {
+    @apply bg-gradient-to-r from-[var(--color-accent-700)] to-[var(--color-accent-600)] text-white font-medium rounded-md transition-all duration-200 hover:from-[var(--color-accent-800)] hover:to-[var(--color-accent-700)] shadow-sm hover:shadow-md;
+  }
+
+  .btn-outline {
+    @apply bg-transparent border border-[var(--color-dark-700)] text-[var(--color-neutral-100)] font-medium rounded-md transition-all duration-200 hover:bg-[var(--color-dark-800)] hover:text-white hover:border-[var(--color-accent-600)];
+  }
+
+  /* Card styles */
+  .card-primary {
+    @apply rounded-lg bg-[var(--color-dark-950)] border border-[var(--color-dark-800)] p-5 shadow-md hover:shadow-lg transition-all duration-300;
+  }
+
+  .card-secondary {
+    @apply rounded-lg bg-[var(--color-dark-900)] border border-[var(--color-dark-800)] p-5 shadow-md hover:shadow-lg transition-all duration-300;
+  }
+
+  .card-accent {
+    @apply rounded-lg bg-gradient-to-br from-[var(--color-dark-950)] to-[var(--color-dark-900)] border border-[var(--color-accent-700)] p-5 shadow-md hover:shadow-lg transition-all duration-300;
+  }
+
+  /* Accent elements */
+  .accent-text {
+    @apply text-[var(--color-accent-500)];
+  }
+
+  .accent-border {
+    @apply border-[var(--color-accent-600)];
+  }
+
+  .accent-bg {
+    @apply bg-[var(--color-accent-600)];
+  }
+
+  /* Layout utilities */
+  .container {
+    @apply mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl;
+  }
+
+  /* Content components */
+  .insight {
+    @apply flex items-start gap-3 mb-5 p-3 rounded-lg hover:bg-[var(--color-dark-900)]/50 transition-all duration-200;
+  }
+
+  .insight span {
+    @apply font-semibold text-[var(--color-accent-500)];
+  }
+
+  .tag {
+    @apply inline-block px-2.5 py-1 mr-2 mb-2 text-xs font-medium rounded-md bg-[var(--color-dark-800)] text-[var(--color-neutral-200)] hover:bg-[var(--color-accent-700)] hover:text-white transition-colors shadow-sm;
+  }
+
+  .project-card {
+    @apply p-6 rounded-lg border border-[var(--color-dark-800)] bg-gradient-to-br from-[var(--color-dark-900)] to-[var(--color-dark-950)] text-white transition-all duration-300 hover:border-[var(--color-accent-700)] shadow-md hover:shadow-lg hover:translate-y-[-2px];
+  }
+
+  .skill-card {
+    @apply p-6 rounded-lg border border-[var(--color-dark-800)] bg-gradient-to-br from-[var(--color-dark-900)] to-[var(--color-dark-950)] text-white transition-all duration-300 hover:border-[var(--color-accent-700)] shadow-md hover:shadow-lg;
+  }
+
+  .section-title {
+    @apply text-4xl font-bold tracking-tight mb-2 relative;
+  }
+
+  .section-title::after {
+    content: "";
+    @apply absolute bottom-[-0.5rem] left-0 w-16 h-1 bg-[var(--color-accent-700)] rounded-full;
+  }
+
+  .section-subtitle {
+    @apply text-[var(--color-neutral-400)] mb-10 mt-4;
+  }
+
+  .section {
+    @apply py-12 md:py-16;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-[var(--color-neutral-100)] to-[var(--color-neutral-200)] bg-clip-text text-transparent;
+  }
+
+  .skill-bar {
+    @apply h-2 rounded-full bg-[var(--color-dark-800)] overflow-hidden shadow-inner;
+  }
+
+  .skill-progress {
+    @apply h-full bg-gradient-to-r from-[var(--color-accent-800)] to-[var(--color-accent-600)];
+  }
+
+  .certification-card {
+    @apply flex items-start p-5 border border-[var(--color-dark-800)] rounded-lg transition-all duration-300 hover:border-[var(--color-accent-700)] bg-gradient-to-br from-[var(--color-dark-900)] to-[var(--color-dark-950)] shadow-md hover:shadow-lg;
+  }
+
+  .location-text {
+    @apply text-sm text-[var(--color-neutral-500)] italic;
+  }
+
+  .timeline-connector {
+    @apply hidden md:block h-full w-0.5 mx-auto mt-4 bg-gradient-to-b from-[var(--color-accent-700)] to-[var(--color-dark-800)];
+  }
+
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[var(--color-accent-700)]/20 text-[var(--color-accent-500)] border border-[var(--color-accent-700)]/30;
+  }
+
+  /* Header specific styling */
+  .header-nav-link {
+    @apply text-sm font-medium transition-colors hover:text-[var(--color-accent-500)] relative;
+  }
+
+  .header-nav-link::after {
+    content: "";
+    @apply absolute left-0 bottom-[-4px] w-0 h-[2px] bg-[var(--color-accent-700)] transition-all duration-300;
+  }
+
+  .header-nav-link:hover::after {
+    @apply w-full;
+  }
+
+  /* Social media buttons with hover effects */
+  .social-button {
+    @apply rounded-full p-2 transition-all duration-300 bg-[var(--color-dark-800)] hover:bg-[var(--color-accent-700)] text-[var(--color-neutral-200)] hover:text-white hover:scale-110 shadow-sm;
+  }
 }
 
-.btn-secondary {
-  @apply bg-[var(--color-mine-shaft-950)] text-white font-medium rounded-md transition-all duration-200 hover:bg-[var(--color-mine-shaft-900)];
-}
+/* Animations in utilities layer */
+@layer utilities {
+  /* Animated skill bars */
+  .animated-skill-bar .skill-progress {
+    animation: skillProgress 1.5s ease-out forwards;
+    transform-origin: left;
+    transform: scaleX(0);
+  }
 
-.btn-accent {
-  @apply bg-[var(--color-dodger-blue-600)] text-white font-medium rounded-md transition-all duration-200 hover:bg-[var(--color-dodger-blue-700)];
-}
-
-.btn-outline {
-  @apply bg-transparent border border-[var(--color-mine-shaft-950)] text-[var(--color-mine-shaft-100)] font-medium rounded-md transition-all duration-200 hover:bg-[var(--color-mine-shaft-950)] hover:text-white;
-}
-
-/* Card styles with our color scheme */
-.card-primary {
-  @apply rounded-lg bg-[var(--color-cod-gray-950)] border border-[var(--color-mine-shaft-950)] p-5;
-}
-
-.card-secondary {
-  @apply rounded-lg bg-[var(--color-mine-shaft-950)] border border-[var(--color-mine-shaft-900)] p-5;
-}
-
-.card-accent {
-  @apply rounded-lg bg-[var(--color-cod-gray-950)] border border-[var(--color-dodger-blue-600)] p-5;
-}
-
-/* Accent elements */
-.accent-text {
-  @apply text-[var(--color-dodger-blue-600)];
-}
-
-.accent-border {
-  @apply border-[var(--color-dodger-blue-600)];
-}
-
-.accent-bg {
-  @apply bg-[var(--color-dodger-blue-600)];
-}
-
-/* Original utility classes with updated colors */
-.container {
-  @apply mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl;
-}
-
-.insight {
-  @apply flex items-start gap-2 mb-4;
-}
-
-.insight span {
-  @apply font-semibold text-[var(--color-dodger-blue-600)];
-}
-
-.tag {
-  @apply inline-block px-2 py-1 mr-2 mb-2 text-xs rounded-md bg-[var(--color-mine-shaft-950)] text-white hover:bg-[var(--color-dodger-blue-600)] transition-colors;
-}
-
-.project-card {
-  @apply p-6 rounded-lg border border-[var(--color-mine-shaft-950)] bg-[var(--color-cod-gray-950)] text-white transition-all duration-300 hover:border-[var(--color-dodger-blue-600)];
-}
-
-.skill-card {
-  @apply p-6 rounded-lg border border-[var(--color-mine-shaft-950)] bg-[var(--color-cod-gray-950)] text-white transition-all duration-300 hover:border-[var(--color-dodger-blue-600)];
-}
-
-.section-title {
-  @apply text-4xl font-bold tracking-tight mb-2;
-}
-
-.section-subtitle {
-  @apply text-[var(--color-mine-shaft-300)] mb-8;
-}
-
-.section {
-  @apply py-12 md:py-16 border-t border-[var(--color-mine-shaft-950)];
-}
-
-.gradient-text {
-  @apply bg-gradient-to-r from-[var(--color-dodger-blue-600)] to-[var(--color-dodger-blue-400)] bg-clip-text text-transparent;
-}
-
-.skill-bar {
-  @apply h-2 rounded-full bg-[var(--color-mine-shaft-950)] overflow-hidden;
-}
-
-.skill-progress {
-  @apply h-full bg-[var(--color-dodger-blue-600)];
-}
-
-/* Additional styling for new elements */
-.certification-card {
-  @apply flex items-start p-4 border border-[var(--color-mine-shaft-950)] rounded-lg transition-all duration-300 hover:border-[var(--color-dodger-blue-600)];
-}
-
-.location-text {
-  @apply text-sm text-[var(--color-mine-shaft-400)] italic;
-}
-
-.timeline-connector {
-  @apply hidden md:block h-full w-0.5 mx-auto mt-4 bg-[var(--color-mine-shaft-950)];
-}
-
-.badge {
-  @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[var(--color-dodger-blue-600)]/20 text-[var(--color-dodger-blue-600)];
+  @keyframes skillProgress {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+  }
 }
 
