@@ -119,14 +119,26 @@
   * {
     @apply border-[hsl(var(--border))];
   }
+
+  html {
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    text-rendering: optimizeLegibility;
+  }
+
   body {
-    @apply bg-[hsl(var(--background))] text-[hsl(var(--foreground))];
+    @apply bg-[hsl(var(--background))] text-[hsl(var(--foreground))] antialiased;
     background-image: radial-gradient(
       circle at top right,
       hsla(210, 70%, 30%, 0.05),
       transparent 40%
     );
     background-attachment: fixed;
+    letter-spacing: -0.01em;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-medium tracking-tight;
+    letter-spacing: -0.02em;
   }
 }
 
@@ -134,32 +146,32 @@
 @layer components {
   /* Button styles */
   .btn-primary {
-    @apply bg-[var(--color-accent-600)] text-white font-medium rounded-md transition-all duration-200 hover:bg-[var(--color-accent-700)] shadow-sm hover:shadow-md;
+    @apply bg-[var(--color-accent-600)] text-white font-medium rounded-md py-2.5 px-4 transition-all duration-200 hover:bg-[var(--color-accent-700)] shadow-sm hover:shadow-md;
   }
 
   .btn-secondary {
-    @apply bg-[var(--color-dark-800)] text-white font-medium rounded-md transition-all duration-200 hover:bg-[var(--color-dark-700)] shadow-sm hover:shadow-md;
+    @apply bg-[var(--color-dark-800)] text-white font-medium rounded-md py-2.5 px-4 transition-all duration-200 hover:bg-[var(--color-dark-700)] shadow-sm hover:shadow-md;
   }
 
   .btn-accent {
-    @apply bg-gradient-to-r from-[var(--color-accent-700)] to-[var(--color-accent-600)] text-white font-medium rounded-md transition-all duration-200 hover:from-[var(--color-accent-800)] hover:to-[var(--color-accent-700)] shadow-sm hover:shadow-md;
+    @apply bg-gradient-to-r from-[var(--color-accent-700)] to-[var(--color-accent-600)] text-white font-medium rounded-md py-2.5 px-4 transition-all duration-200 hover:from-[var(--color-accent-800)] hover:to-[var(--color-accent-700)] shadow-sm hover:shadow-md;
   }
 
   .btn-outline {
-    @apply bg-transparent border border-[var(--color-dark-700)] text-[var(--color-neutral-100)] font-medium rounded-md transition-all duration-200 hover:bg-[var(--color-dark-800)] hover:text-white hover:border-[var(--color-accent-600)];
+    @apply bg-transparent border border-[var(--color-dark-700)] text-[var(--color-neutral-100)] font-medium rounded-md py-2.5 px-4 transition-all duration-200 hover:bg-[var(--color-dark-800)] hover:text-white hover:border-[var(--color-accent-600)];
   }
 
   /* Card styles */
   .card-primary {
-    @apply rounded-lg bg-[var(--color-dark-950)] border border-[var(--color-dark-800)] p-5 shadow-md hover:shadow-lg transition-all duration-300;
+    @apply rounded-lg bg-[var(--color-dark-950)] border border-[var(--color-dark-800)] p-6 shadow-md hover:shadow-lg transition-all duration-300;
   }
 
   .card-secondary {
-    @apply rounded-lg bg-[var(--color-dark-900)] border border-[var(--color-dark-800)] p-5 shadow-md hover:shadow-lg transition-all duration-300;
+    @apply rounded-lg bg-[var(--color-dark-900)] border border-[var(--color-dark-800)] p-6 shadow-md hover:shadow-lg transition-all duration-300;
   }
 
   .card-accent {
-    @apply rounded-lg bg-gradient-to-br from-[var(--color-dark-950)] to-[var(--color-dark-900)] border border-[var(--color-accent-700)] p-5 shadow-md hover:shadow-lg transition-all duration-300;
+    @apply rounded-lg bg-gradient-to-br from-[var(--color-dark-950)] to-[var(--color-dark-900)] border border-[var(--color-accent-700)] p-6 shadow-md hover:shadow-lg transition-all duration-300;
   }
 
   /* Accent elements */
@@ -182,7 +194,7 @@
 
   /* Content components */
   .insight {
-    @apply flex items-start gap-3 mb-5 p-3 rounded-lg hover:bg-[var(--color-dark-900)]/50 transition-all duration-200;
+    @apply flex items-start gap-4 mb-6 p-4 rounded-lg hover:bg-[var(--color-dark-900)]/50 transition-all duration-200;
   }
 
   .insight span {
@@ -190,7 +202,7 @@
   }
 
   .tag {
-    @apply inline-block px-2.5 py-1 mr-2 mb-2 text-xs font-medium rounded-md bg-[var(--color-dark-800)] text-[var(--color-neutral-200)] hover:bg-[var(--color-accent-700)] hover:text-white transition-colors shadow-sm;
+    @apply inline-block px-3 py-1 mr-2 mb-2 text-xs font-medium rounded-md bg-[var(--color-dark-800)] text-[var(--color-neutral-200)] hover:bg-[var(--color-accent-700)] hover:text-white transition-colors shadow-sm;
   }
 
   .project-card {
@@ -202,20 +214,20 @@
   }
 
   .section-title {
-    @apply text-4xl font-bold tracking-tight mb-2 relative;
+    @apply text-4xl font-bold tracking-tight mb-3 relative;
   }
 
   .section-title::after {
     content: "";
-    @apply absolute bottom-[-0.5rem] left-0 w-16 h-1 bg-[var(--color-accent-700)] rounded-full;
+    @apply absolute bottom-[-0.75rem] left-0 w-20 h-1 bg-[var(--color-accent-700)] rounded-full;
   }
 
   .section-subtitle {
-    @apply text-[var(--color-neutral-400)] mb-10 mt-4;
+    @apply text-[var(--color-neutral-400)] mb-12 mt-6 text-lg;
   }
 
   .section {
-    @apply py-12 md:py-16;
+    @apply py-16 md:py-20;
   }
 
   .gradient-text {
@@ -248,12 +260,12 @@
 
   /* Header specific styling */
   .header-nav-link {
-    @apply text-sm font-medium transition-colors hover:text-[var(--color-accent-500)] relative;
+    @apply text-sm font-medium transition-colors hover:text-[var(--color-accent-500)] relative px-1 py-2;
   }
 
   .header-nav-link::after {
     content: "";
-    @apply absolute left-0 bottom-[-4px] w-0 h-[2px] bg-[var(--color-accent-700)] transition-all duration-300;
+    @apply absolute left-0 bottom-[-1px] w-0 h-[2px] bg-[var(--color-accent-700)] transition-all duration-300;
   }
 
   .header-nav-link:hover::after {
@@ -262,7 +274,7 @@
 
   /* Social media buttons with hover effects */
   .social-button {
-    @apply rounded-full p-2 transition-all duration-300 bg-[var(--color-dark-800)] hover:bg-[var(--color-accent-700)] text-[var(--color-neutral-200)] hover:text-white hover:scale-110 shadow-sm;
+    @apply rounded-full p-2.5 transition-all duration-300 bg-[var(--color-dark-800)] hover:bg-[var(--color-accent-700)] text-[var(--color-neutral-200)] hover:text-white hover:scale-110 shadow-sm;
   }
 }
 
@@ -278,6 +290,15 @@
   @keyframes skillProgress {
     from { transform: scaleX(0); }
     to { transform: scaleX(1); }
+  }
+
+  /* Spacing utilities */
+  .content-spacing {
+    @apply space-y-8;
+  }
+
+  .section-spacing {
+    @apply space-y-24;
   }
 }
 

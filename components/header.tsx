@@ -17,7 +17,7 @@ export function Header() {
             <ThemeToggle />
           </div>
 
-          <nav className="hidden md:flex items-center space-x-6">
+          <nav className="hidden md:flex items-center space-x-8">
             <Link href="#" className="header-nav-link">
               Home
             </Link>
@@ -41,7 +41,7 @@ export function Header() {
           <div className="md:hidden flex items-center">
             <button
               type="button"
-              className="rounded-md p-2 text-white hover:bg-[var(--color-dark-800)] transition-colors"
+              className="rounded-md p-2.5 text-white hover:bg-[var(--color-dark-800)] transition-colors"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
               <span className="sr-only">Open main menu</span>
@@ -59,45 +59,45 @@ export function Header() {
       {mobileMenuOpen && (
         <div className="md:hidden border-t border-[var(--color-dark-800)] bg-[var(--color-dark-950)]/95 shadow-lg">
           <div className="mx-auto w-full max-w-5xl px-6 sm:px-8 md:px-12 lg:px-16">
-            <div className="space-y-1 py-4">
+            <div className="space-y-2 py-6">
               <Link
                 href="#"
-                className="block py-2 header-nav-link"
+                className="block py-2.5 px-3 rounded-md hover:bg-[var(--color-dark-800)]/50 header-nav-link"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Home
               </Link>
               <Link
                 href="#work-experience"
-                className="block py-2 header-nav-link"
+                className="block py-2.5 px-3 rounded-md hover:bg-[var(--color-dark-800)]/50 header-nav-link"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Experience
               </Link>
               <Link
                 href="#projects"
-                className="block py-2 header-nav-link"
+                className="block py-2.5 px-3 rounded-md hover:bg-[var(--color-dark-800)]/50 header-nav-link"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Projects
               </Link>
               <Link
                 href="#skills"
-                className="block py-2 header-nav-link"
+                className="block py-2.5 px-3 rounded-md hover:bg-[var(--color-dark-800)]/50 header-nav-link"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Skills
               </Link>
               <Link
                 href="#education"
-                className="block py-2 header-nav-link"
+                className="block py-2.5 px-3 rounded-md hover:bg-[var(--color-dark-800)]/50 header-nav-link"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Education
               </Link>
               <Link
                 href="#contact"
-                className="block py-2 header-nav-link"
+                className="block py-2.5 px-3 rounded-md hover:bg-[var(--color-dark-800)]/50 header-nav-link"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Contact
