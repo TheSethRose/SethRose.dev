@@ -3,6 +3,10 @@ import { GitHubRepository, ProjectData } from '@/lib/types'
 // Username to fetch repositories for
 const GITHUB_USERNAME = 'TheSethRose' // Replace with your actual GitHub username
 
+// Cache settings
+const CACHE_DURATION = 60 * 60; // 1 hour in seconds
+const CACHE_STALE_WHILE_REVALIDATE = 60 * 60 * 24; // 24 hours in seconds
+
 /**
  * Fetch repositories for a user from GitHub
  */
@@ -21,7 +25,8 @@ export async function fetchGitHubRepositories(): Promise<GitHubRepository[]> {
     // Headers according to GitHub API best practices
     const headers: HeadersInit = {
       'Accept': 'application/vnd.github.v3+json',
-      'X-GitHub-Api-Version': '2022-11-28'
+      'X-GitHub-Api-Version': '2022-11-28',
+      'If-None-Match': '', // For ETag support
     };
 
     // Add authorization if token is available
@@ -29,11 +34,12 @@ export async function fetchGitHubRepositories(): Promise<GitHubRepository[]> {
       headers.Authorization = `token ${process.env.GITHUB_TOKEN}`;
     }
 
+    // Fetch data with proper caching
     const response = await fetch(`${apiUrl}?${params.toString()}`, {
       headers,
-      // Use next.js recommended cache settings
       next: {
-        revalidate: 3600 // Revalidate every hour
+        revalidate: CACHE_DURATION,
+        tags: ['github-repos']
       }
     });
 
@@ -90,12 +96,6 @@ export async function fetchGitHubContributions(username: string = GITHUB_USERNAM
     fromDate.setDate(fromDate.getDate() - 90);
     const fromDateString = fromDate.toISOString();
 
-    console.log('Date range for GitHub contributions:', {
-      from: new Date(fromDateString).toLocaleDateString(),
-      to: new Date(toDate).toLocaleDateString(),
-      today: today.toLocaleDateString()
-    });
-
     // GraphQL query to get contribution data
     const query = `
       query($username: String!, $from: DateTime!, $to: DateTime!) {
@@ -115,22 +115,21 @@ export async function fetchGitHubContributions(username: string = GITHUB_USERNAM
       }
     `;
 
-    // Variables for the query
+    // Variables for the GraphQL query
     const variables = {
       username,
       from: fromDateString,
       to: toDate
     };
 
-    // Make the GraphQL request
-    const response = await fetch(apiUrl, {
+    // Fetch data from GitHub GraphQL API
+    const response = await fetch('https://api.github.com/graphql', {
       method: 'POST',
       headers,
       body: JSON.stringify({ query, variables }),
-      // Disable caching to force fresh data
-      cache: 'no-store',
       next: {
-        revalidate: 0 // Disable revalidation cache
+        revalidate: CACHE_DURATION,
+        tags: ['github-contributions']
       }
     });
 
