@@ -18,6 +18,7 @@ This document provides an overview of the UI components used in the application.
 - [Data Display Components](#data-display-components)
   - [Card](#card)
   - [Table](#table)
+  - [WorkExperience](#workexperience)
 - [Utility Components](#utility-components)
   - [Theme Provider](#theme-provider)
 
@@ -314,6 +315,36 @@ export function Example() {
   )
 }
 ```
+
+### WorkExperience
+
+The WorkExperience component displays professional experience in a timeline format with expandable details.
+
+#### Usage
+
+```tsx
+import { WorkExperience } from "@/components/work-experience"
+
+export default function Experience() {
+  return (
+    <main>
+      <WorkExperience />
+    </main>
+  )
+}
+```
+
+#### Features
+
+- **Timeline Layout**: Displays work experience in a vertical timeline format
+- **Expandable Details**: Toggle button to show/hide detailed responsibilities
+- **Highlight Badges**: Key skills and technologies displayed as badges
+- **Responsive Design**: Adapts to different screen sizes with appropriate layout changes
+- **Visual Indicators**: Uses icons and separators to enhance the timeline visualization
+
+#### Implementation Details
+
+The WorkExperience component is implemented as a client component using React's `useState` hook to manage the expanded state of each experience entry. It uses Lucide React icons and several ShadCN UI components including Typography, Separator, Badge, and Button.
 
 ## Utility Components
 
