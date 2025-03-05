@@ -1,6 +1,6 @@
 "use client"
 
-import { Briefcase, ChevronDown, ExternalLink } from "lucide-react"
+import { Briefcase, ChevronDown, ExternalLink, Building, Calendar, MapPin } from "lucide-react"
 import { Typography } from "@/components/ui/typography"
 import { Separator } from "@/components/ui/separator"
 import { useState, useEffect } from "react"
@@ -88,44 +88,13 @@ export function WorkExperience() {
     if (!text) {
       return {
         title: title || '',
-        action: '',
-        subject: '',
-        details: ''
+        text: ''
       }
     }
 
-    // Extract the main action verb (first word usually)
-    const firstWord = text.split(' ')[0]
-
-    // Extract the main subject/focus area (usually after the first verb)
-    let mainSubject = text.split(',')[0]
-    if (mainSubject.length > 40) {
-      // If too long, just use the first few words
-      mainSubject = mainSubject.split(' ').slice(0, 5).join(' ') + '...'
-    } else if (mainSubject === firstWord) {
-      // If mainSubject is just the first word, get more context
-      mainSubject = text.split(' ').slice(0, 5).join(' ') + '...'
-    }
-
-    // Remove the main subject from the details to avoid repetition
-    let details = text
-    if (details.startsWith(mainSubject)) {
-      details = details.substring(mainSubject.length)
-    }
-
-    // Clean up any leading punctuation in details
-    details = details.replace(/^[,\s]+/, '')
-
-    // Capitalize first letter of details
-    if (details.length > 0) {
-      details = details.charAt(0).toUpperCase() + details.slice(1)
-    }
-
     return {
-      title: title || firstWord,
-      action: firstWord,
-      subject: mainSubject.replace(firstWord, '').trim(),
-      details: details
+      title: title || '',
+      text: text
     }
   }
 
@@ -194,28 +163,91 @@ export function WorkExperience() {
               width="w-[75%] max-h-[80vh]"
               className="overflow-y-auto bg-[var(--color-dark-900)] border-[var(--color-dark-700)]"
             >
-              <DialogHeader>
+              <DialogHeader className="pb-0 border-b-0">
                 <DialogTitle className="text-2xl font-bold">
                   {experiences[selectedExperience].title}
                 </DialogTitle>
               </DialogHeader>
 
-              <div className="mt-4">
-                <h4 className="text-lg font-semibold mb-4 text-[var(--color-accent-500)]">Responsibilities & Achievements</h4>
+              <div className="mt-2 mb-3 pb-3">
+                <div className="flex flex-col md:flex-row gap-4">
+                  {/* Company logo/icon placeholder */}
+                  <div className="flex-shrink-0 w-16 h-16 rounded-md bg-[var(--color-accent-900)]/30 border border-[var(--color-accent-700)]/30 flex items-center justify-center">
+                    <Building className="h-8 w-8 text-[var(--color-accent-500)]" />
+                  </div>
+
+                  {/* Company and job details */}
+                  <div className="flex-1">
+                    <h3 className="text-lg font-semibold text-[var(--color-neutral-100)]">
+                      {experiences[selectedExperience].company}
+                    </h3>
+                    <p className="text-sm text-[var(--color-neutral-400)]">
+                      {experiences[selectedExperience].type}
+                    </p>
+
+                    <div className="mt-3 flex flex-col sm:flex-row sm:items-center gap-y-2 sm:gap-x-4 text-sm">
+                      <div className="flex items-center gap-1.5 text-[var(--color-neutral-300)]">
+                        <Calendar className="h-4 w-4 text-[var(--color-accent-500)]" />
+                        <span>
+                          {experiences[selectedExperience].formattedPeriod ||
+                            `${formatDate(experiences[selectedExperience].startDate)} — ${
+                              experiences[selectedExperience].endDate === "Present"
+                                ? "Present"
+                                : formatDate(experiences[selectedExperience].endDate)
+                            }`
+                          }
+                        </span>
+                      </div>
+
+                      {experiences[selectedExperience].location && (
+                        <div className="flex items-center gap-1.5 text-[var(--color-neutral-300)]">
+                          <MapPin className="h-4 w-4 text-[var(--color-accent-500)]" />
+                          <span>{experiences[selectedExperience].location}</span>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mb-6">
+                <h4 className="text-lg font-semibold mb-3 text-[var(--color-accent-500)] flex items-center">
+                  <span>Key Skills</span>
+                  <div className="h-px flex-1 bg-[var(--color-dark-700)] ml-3"></div>
+                </h4>
+                <div className="flex flex-wrap gap-2">
+                  {experiences[selectedExperience].highlights.map((highlight, i) => (
+                    <Badge
+                      key={i}
+                      variant="outline"
+                      className="bg-[var(--color-dark-800)] text-[var(--color-accent-400)] border-[var(--color-accent-700)] border-opacity-30 hover:bg-[var(--color-accent-900)] hover:bg-opacity-50 py-1 px-3"
+                    >
+                      {highlight}
+                    </Badge>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <h4 className="text-lg font-semibold mb-3 text-[var(--color-accent-500)] flex items-center">
+                  <span>Responsibilities & Achievements</span>
+                  <div className="h-px flex-1 bg-[var(--color-dark-700)] ml-3"></div>
+                </h4>
 
                 {/* Formatted responsibilities */}
                 <div className="space-y-6">
                   {experiences[selectedExperience].responsibilities.map((resp, respIndex) => {
                     const formatted = formatResponsibility(resp)
                     return (
-                      <div key={respIndex} className="border-l-2 border-[var(--color-dark-700)] pl-4 py-1">
-                        <h5 className="text-md font-medium text-[var(--color-neutral-100)]">
+                      <div
+                        key={respIndex}
+                        className="border-l-2 border-[var(--color-accent-700)] border-opacity-30 hover:border-[var(--color-accent-500)] pl-4 py-2 transition-all rounded-r bg-[var(--color-dark-800)] bg-opacity-30 hover:bg-[var(--color-dark-800)] hover:bg-opacity-50"
+                      >
+                        <h5 className="text-md font-medium text-[var(--color-neutral-100)] flex items-center">
                           <span className="text-[var(--color-accent-500)]">{formatted.title}</span>
                         </h5>
-                        <p className="mt-1 text-sm leading-relaxed text-[var(--color-neutral-300)]">
-                          <span className="font-medium">{formatted.action}</span>
-                          {formatted.subject && <span> {formatted.subject}</span>}
-                          {formatted.details && <span>, {formatted.details}</span>}
+                        <p className="mt-2 text-sm leading-relaxed text-[var(--color-neutral-300)]">
+                          {formatted.text}
                         </p>
                       </div>
                     )
@@ -223,7 +255,7 @@ export function WorkExperience() {
                 </div>
               </div>
 
-              <DialogFooter className="mt-6">
+              <DialogFooter className="mt-8 pt-4 border-t border-[var(--color-dark-700)]">
                 <Button variant="accent" onClick={closeExperienceModal}>
                   Close
                 </Button>
@@ -247,11 +279,17 @@ const initialExperiences = [
     formattedPeriod: "", // Will be calculated
     location: "",
     highlights: [
-      "ServiceNow Platform Management",
+      "ServiceNow Platform",
+      "ITSM Solutions",
       "Workflow Automation",
+      "Process Orchestration",
+      "System Integrations",
+      "Solution Development",
+      "Technical Architecture",
       "Stakeholder Collaboration",
-      "Technical Leadership",
-      "Google DialogFlow Integration"
+      "Team Leadership",
+      "Google DialogFlow",
+      "API Integration"
     ],
     responsibilities: [
       {
@@ -289,11 +327,17 @@ const initialExperiences = [
     formattedPeriod: "", // Will be calculated
     location: "Plano, Texas, United States",
     highlights: [
+      "SecOps Solutions",
       "Security Incident Response",
       "Vulnerability Management",
-      "Service Portal Development",
+      "Service Portal Widgets",
+      "CMDB Management",
       "API Integration",
-      "Agile Product Ownership"
+      "Agile Methodologies",
+      "Product Ownership",
+      "Qualys Integration",
+      "Splunk Integration",
+      "System Administration"
     ],
     responsibilities: [
       {
@@ -332,10 +376,16 @@ const initialExperiences = [
     location: "Frisco, Texas, United States",
     highlights: [
       "ITSM Implementation",
-      "Platform Administration",
+      "ServiceNow Administrator",
+      "Platform Configuration",
+      "Platform Customization",
+      "Incident Management",
       "Process Automation",
-      "Cross-Platform Integration",
-      "User Management"
+      "User Management",
+      "System Administration",
+      "JIRA Integration",
+      "OpsGenie Integration",
+      "Ticket Triage Automation"
     ],
     responsibilities: [
       {

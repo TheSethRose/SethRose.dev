@@ -6,12 +6,17 @@ import { Button } from "@/components/ui/button"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
 import ReactMarkdown from "react-markdown"
 
+interface TagProps {
+  name: string
+  className?: string
+}
+
 interface CardProps {
   title: string
   icon: LucideIcon
   description?: string
   issuer?: string
-  tags?: string[]
+  tags?: Array<string | TagProps>
   url?: string
   urlIcon?: LucideIcon
   urlText?: string
@@ -169,8 +174,12 @@ export function ContentCard({
       {tags.length > 0 && size !== "xs" && (
         <div className="mt-4 flex flex-wrap justify-center gap-1.5">
           {tags.map((tag, index) => {
+            // Handle both string tags and object tags
+            const tagName = typeof tag === 'string' ? tag : tag.name;
+            const tagClassName = typeof tag === 'string' ? undefined : tag.className;
+
             // Calculate responsive styling based on text length and card size
-            const isLongText = tag.length > 8;
+            const isLongText = tagName.length > 8;
             const fontSize = size === "small" ? "text-[10px]" : "text-xs";
 
             return (
@@ -181,10 +190,11 @@ export function ContentCard({
                   "bg-[var(--color-dark-800)]/50 hover:bg-[var(--color-accent-700)] hover:text-white border-[var(--color-dark-700)] text-[var(--color-neutral-200)]",
                   size === "small" ? "py-0 px-1.5" : "py-0.5 px-2",
                   fontSize,
-                  isLongText && size === "small" ? "leading-tight" : ""
+                  isLongText && size === "small" ? "leading-tight" : "",
+                  tagClassName
                 )}
               >
-                {tag}
+                {tagName}
               </Badge>
             );
           })}
