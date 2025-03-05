@@ -19,6 +19,7 @@ This document provides an overview of the UI components used in the application.
   - [Card](#card)
   - [Table](#table)
   - [WorkExperience](#workexperience)
+  - [Projects](#projects)
 - [Utility Components](#utility-components)
   - [Theme Provider](#theme-provider)
 
@@ -345,6 +346,48 @@ export default function Experience() {
 #### Implementation Details
 
 The WorkExperience component is implemented as a client component using React's `useState` hook to manage the expanded state of each experience entry. It uses Lucide React icons and several ShadCN UI components including Typography, Separator, Badge, and Button.
+
+### Projects
+
+The Projects component displays GitHub repositories in a responsive mosaic grid layout with different card sizes.
+
+#### Usage
+
+```tsx
+import { Projects } from "@/components/projects"
+
+export default function ProjectsPage() {
+  return (
+    <main>
+      <Projects />
+    </main>
+  )
+}
+```
+
+#### Features
+
+- **GitHub Integration**: Fetches and displays real GitHub repositories
+- **Mosaic Grid Layout**: Organizes projects in a visually appealing grid with different card sizes
+- **Loading State**: Shows a loading spinner while fetching data
+- **Error Handling**: Falls back to example projects if GitHub API fails
+- **Responsive Design**: Adapts to different screen sizes with appropriate layout changes
+- **Dynamic Card Sizing**: Determines card size based on repository metrics (stars, forks, description length)
+- **Automatic Icon Selection**: Chooses appropriate icons based on repository language and topics
+
+#### Implementation Details
+
+The Projects component is implemented as a client component using React's `useState` and `useEffect` hooks to fetch and manage GitHub repository data. It uses the Next.js App Router API route for data fetching with caching and revalidation. The component includes loading and error states for better user experience.
+
+#### GitHub Integration Setup
+
+To enable the GitHub integration:
+
+1. Create a GitHub personal access token at https://github.com/settings/tokens
+2. Copy the `.env.local.example` file to `.env.local` and add your token
+3. Restart the development server
+
+The integration uses the native fetch API to retrieve repository data and caches it for one hour to minimize API requests.
 
 ## Utility Components
 

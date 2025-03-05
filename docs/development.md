@@ -9,6 +9,7 @@ This document provides information about the development workflow, standards, an
 - [Development Workflow](#development-workflow)
 - [Coding Standards](#coding-standards)
 - [Theme System](#theme-system)
+- [GitHub Integration](#github-integration)
 - [Testing](#testing)
 - [Deployment](#deployment)
 
@@ -163,10 +164,18 @@ export function Header() {
 }
 ```
 
-## Testing
+## GitHub Integration
 
-(Testing framework and practices to be implemented)
+The project includes a GitHub integration to display repositories in the Projects component. For detailed information, see [GitHub Integration](./github-integration.md).
 
-## Deployment
+### Setup
 
-(Deployment information to be added)
+1. Create a GitHub personal access token
+2. Add the token to your `.env.local` file:
+   ```
+   GITHUB_TOKEN=your_github_token_here
+   ```
+
+### Key Components
+
+- **Types**: `
