@@ -9,7 +9,7 @@ import { Skeleton } from "@/components/ui/skeleton"
 import { Code, Server, Bot, Github, Database, Globe } from "lucide-react"
 import { LucideIcon } from "lucide-react"
 import { ProjectData } from "@/lib/types"
-import { GitHubHeatmap } from "@/components/GitHubHeatmap"
+import { GitHub } from "@/components/GitHub"
 
 // Map of icon names to Lucide components
 const iconMap: Record<string, LucideIcon> = {
@@ -155,19 +155,9 @@ export function Projects() {
           </>
         )}
 
-        {/* GitHub Contribution Heatmap */}
-        <div className="mt-16 rounded-xl bg-[var(--color-background)] p-6 shadow-sm">
-          <GitHubHeatmap username="TheSethRose" />
-        </div>
+        {/* GitHub Component */}
+        <GitHub username="TheSethRose" />
 
-        <div className="mt-10 flex justify-center">
-          <Button asChild variant="outline" size="lg" className="group">
-            <Link href="https://github.com/TheSethRose" target="_blank" rel="noopener noreferrer">
-              <Github className="mr-2 h-5 w-5 transition-transform duration-300 group-hover:scale-110" />
-              View More on GitHub
-            </Link>
-          </Button>
-        </div>
       </div>
     </section>
   )

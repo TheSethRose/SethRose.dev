@@ -332,3 +332,139 @@ export function mapRepositoriesToProjects(repositories: GitHubRepository[]): Pro
       size: getSizeForRepository(repo, filteredRepos)
     }));
 }
+
+// Function to fetch GitHub sponsors data
+export async function fetchGitHubSponsors(username: string) {
+  try {
+    // GitHub GraphQL API endpoint
+    const endpoint = 'https://api.github.com/graphql';
+
+    // GraphQL query to fetch sponsors and goals
+    const query = `
+      query {
+        user(login: "${username}") {
+          sponsorshipsAsMaintainer(first: 10) {
+            totalCount
+            nodes {
+              sponsorEntity {
+                ... on User {
+                  login
+                  name
+                  avatarUrl
+                }
+                ... on Organization {
+                  login
+                  name
+                  avatarUrl
+                }
+              }
+              tier {
+                monthlyPriceInDollars
+              }
+            }
+          }
+          sponsorsListing {
+            tiers(first: 10) {
+              nodes {
+                monthlyPriceInDollars
+                name
+                description
+              }
+            }
+            goals(first: 5) {
+              nodes {
+                title
+                description
+                percentComplete
+                targetValue
+                kind
+              }
+            }
+          }
+        }
+      }
+    `;
+
+    // Fetch data from GitHub API
+    const response = await fetch(endpoint, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${process.env.GITHUB_TOKEN}`
+      },
+      body: JSON.stringify({ query }),
+      next: { revalidate: 3600 } // Revalidate every hour
+    });
+
+    if (!response.ok) {
+      throw new Error(`GitHub API responded with status: ${response.status}`);
+    }
+
+    const result = await response.json();
+
+    // Extract sponsors data
+    const totalSponsors = result.data?.user?.sponsorshipsAsMaintainer?.totalCount || 0;
+    const sponsors = result.data?.user?.sponsorshipsAsMaintainer?.nodes?.map((node: any) => ({
+      login: node.sponsorEntity.login,
+      name: node.sponsorEntity.name,
+      avatarUrl: node.sponsorEntity.avatarUrl,
+      tier: node.tier?.monthlyPriceInDollars || 0
+    })) || [];
+
+    // Extract tiers data
+    const tiers = result.data?.user?.sponsorsListing?.tiers?.nodes?.map((tier: any) => ({
+      price: tier.monthlyPriceInDollars,
+      name: tier.name,
+      description: tier.description
+    })) || [];
+
+    // Extract goals data
+    const goals = result.data?.user?.sponsorsListing?.goals?.nodes || [];
+
+    // Find the first goal related to number of sponsors (or use default if none found)
+    let sponsorGoal = 10; // Default fallback
+    let sponsorPercentage = 0;
+
+    // Try to find a goal related to number of sponsors
+    const sponsorCountGoal = goals.find((goal: any) =>
+      goal.kind === 'TOTAL_SPONSORS_COUNT' ||
+      (goal.title && goal.title.toLowerCase().includes('sponsor'))
+    );
+
+    if (sponsorCountGoal) {
+      // Use the goal from GitHub if available
+      sponsorGoal = sponsorCountGoal.targetValue || 10;
+      sponsorPercentage = sponsorCountGoal.percentComplete ||
+        Math.min(100, Math.round((totalSponsors / sponsorGoal) * 100));
+    } else {
+      // Calculate percentage based on our default goal
+      sponsorPercentage = Math.min(100, Math.round((totalSponsors / sponsorGoal) * 100));
+    }
+
+    // Calculate monthly income
+    const monthlyIncome = sponsors.reduce((sum: number, sponsor: any) => sum + (sponsor.tier || 0), 0);
+
+    // Log the goals data for debugging
+    console.log('GitHub Sponsor Goals:', goals);
+
+    return {
+      totalSponsors,
+      sponsors,
+      tiers,
+      monthlyIncome,
+      sponsorGoal,
+      sponsorPercentage
+    };
+  } catch (error) {
+    console.error('Error fetching GitHub sponsors:', error);
+    // Return empty data on error
+    return {
+      totalSponsors: 0,
+      sponsors: [],
+      tiers: [],
+      monthlyIncome: 0,
+      sponsorGoal: 10,
+      sponsorPercentage: 0
+    };
+  }
+}

@@ -227,8 +227,8 @@ export function GitHubHeatmap({ username, className = "" }: HeatmapProps) {
 
   return (
     <div className={`w-full ${className}`}>
-      <div className="flex justify-between items-center mb-4">
-        <Typography as="h3" variant="h4" className="text-[var(--color-neutral-500)]">
+      <div className="flex justify-center items-center mb-4">
+        <Typography as="h3" variant="h4" className="text-white text-center">
           {totalContributions} contributions in the last 90 days
         </Typography>
       </div>
