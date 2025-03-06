@@ -15,7 +15,6 @@ export default function Home() {
       <div className="mx-auto w-full max-w-6xl px-6 sm:px-8 md:px-12 lg:px-16">
         <main className="flex-1">
           <HeroSection />
-          <QuickInsights />
           <WorkExperience />
           <Projects />
           <Skills />

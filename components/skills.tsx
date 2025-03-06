@@ -73,7 +73,7 @@ export function Skills() {
     },
     {
       title: "Web Development",
-      description: "Self-taught expertise in modern web development technologies and frameworks.",
+      description: "Expertise in modern web development technologies and frameworks.",
       tags: [
         { name: "React", source: "self-taught" },
         { name: "Next.js", source: "self-taught" },
@@ -121,13 +121,11 @@ export function Skills() {
     },
     {
       title: "AI & Machine Learning",
-      description: "Self-taught expertise in AI technologies and machine learning applications.",
+      description: "Expertise in AI technologies and machine learning applications.",
       tags: [
-        { name: "MCP", source: "self-taught" },
-        { name: "MCP-Server", source: "self-taught" },
+        { name: "MCP Servers", source: "self-taught" },
         { name: "Claude", source: "self-taught" },
         { name: "Cursor", source: "self-taught" },
-        { name: "Grok", source: "self-taught" },
         { name: "Grok3", source: "self-taught" },
         { name: "XAI", source: "self-taught" },
         { name: "LLM", source: "self-taught" }
@@ -137,7 +135,7 @@ export function Skills() {
     },
     {
       title: "Backend Technologies",
-      description: "Self-taught backend development skills for building robust server-side applications.",
+      description: "Backend development skills for building robust server-side applications.",
       tags: [
         { name: "Node.js", source: "self-taught" },
         { name: "Express.js", source: "self-taught" },
