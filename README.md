@@ -23,7 +23,8 @@ This portfolio showcases my professional experience, skills, and projects as a S
 - **UI Components**: ShadCN UI
 - **Theme System**: next-themes
 - **Icons**: Lucide React
-- **Deployment**: Vercel
+- **Deployment**: Hetzner
+- **Domain Host**: Cloudflare
 
 ## Sections
 

@@ -1,9 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import Link from "next/link"
 import { Typography } from "@/components/ui/typography"
-import { Button } from "@/components/ui/button"
 import { ContentCard } from "@/components/ui/content-card"
 import { Skeleton } from "@/components/ui/skeleton"
 import { Code, Server, Bot, Github, Database, Globe } from "lucide-react"

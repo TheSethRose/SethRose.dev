@@ -10,10 +10,10 @@ const typographyVariants = cva("", {
       h3: "text-2xl font-bold",
       h4: "text-xl font-semibold",
       p: "leading-7",
-      subtle: "text-[var(--color-neutral-300)]",
-      muted: "text-sm text-[var(--color-neutral-400)]",
+      subtle: "dark:text-[var(--color-neutral-300)] text-gray-600",
+      muted: "text-sm dark:text-[var(--color-neutral-400)] text-gray-500",
       sectionTitle: "text-3xl font-bold tracking-tight",
-      sectionSubtitle: "text-[var(--color-neutral-400)] mt-2",
+      sectionSubtitle: "dark:text-[var(--color-neutral-400)] text-gray-700 mt-2",
       gradient: "bg-gradient-to-r from-[var(--color-accent-500)] to-[var(--color-accent-700)] bg-clip-text text-transparent",
     },
     size: {

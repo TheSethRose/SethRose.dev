@@ -19,7 +19,7 @@ type HeatmapProps = {
 export function GitHubHeatmap({ username, className = "" }: HeatmapProps) {
   const [contributions, setContributions] = useState<ContributionDay[]>([])
   const [totalContributions, setTotalContributions] = useState(0)
-  const [loading, setLoading] = useState(true)
+  const [isLoading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [refreshKey, setRefreshKey] = useState(0)
 
@@ -98,7 +98,7 @@ export function GitHubHeatmap({ username, className = "" }: HeatmapProps) {
     }
 
     fetchContributions()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // This effect should only run when username or refreshKey changes
   }, [username, refreshKey])
 
   // Function to manually refresh the data
@@ -164,9 +164,6 @@ export function GitHubHeatmap({ username, className = "" }: HeatmapProps) {
   const getMonthLabels = () => {
     if (contributions.length === 0) return []
 
-    // Ensure we show Dec, Jan, Feb, Mar for a 90-day period ending in March
-    const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-
     // For a 90-day period ending in March, we need to show Dec, Jan, Feb, Mar
     return [
       { name: 'Dec', index: 11 },
@@ -176,7 +173,7 @@ export function GitHubHeatmap({ username, className = "" }: HeatmapProps) {
     ]
   }
 
-  if (loading) {
+  if (isLoading) {
     return (
       <div className={`w-full ${className}`}>
         <div className="flex justify-between items-center mb-4">
@@ -184,7 +181,7 @@ export function GitHubHeatmap({ username, className = "" }: HeatmapProps) {
           <button
             onClick={handleRefresh}
             className="text-sm text-[var(--color-neutral-500)] hover:text-[var(--color-neutral-400)]"
-            disabled={loading}
+            disabled={isLoading}
           >
             Refresh
           </button>
@@ -213,7 +210,7 @@ export function GitHubHeatmap({ username, className = "" }: HeatmapProps) {
     )
   }
 
-  const { weeks, totalDays } = calculateCalendarData()
+  const { weeks } = calculateCalendarData()
   const months = getMonthLabels()
 
   // GitHub's green color palette for dark mode (adjusted for better visibility)

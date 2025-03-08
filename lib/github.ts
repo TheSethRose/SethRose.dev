@@ -5,7 +5,6 @@ const GITHUB_USERNAME = 'TheSethRose' // Replace with your actual GitHub usernam
 
 // Cache settings
 const CACHE_DURATION = 60 * 60; // 1 hour in seconds
-const CACHE_STALE_WHILE_REVALIDATE = 60 * 60 * 24; // 24 hours in seconds
 
 /**
  * Fetch repositories for a user from GitHub
@@ -65,8 +64,6 @@ export async function fetchGitHubContributions(username: string = GITHUB_USERNAM
   totalContributions: number
 }> {
   try {
-    // GitHub GraphQL API endpoint
-    const apiUrl = 'https://api.github.com/graphql';
 
     // Headers for GraphQL API
     const headers: HeadersInit = {
@@ -404,7 +401,7 @@ export async function fetchGitHubSponsors(username: string) {
 
     // Extract sponsors data
     const totalSponsors = result.data?.user?.sponsorshipsAsMaintainer?.totalCount || 0;
-    const sponsors = result.data?.user?.sponsorshipsAsMaintainer?.nodes?.map((node: any) => ({
+    const sponsors = result.data?.user?.sponsorshipsAsMaintainer?.nodes?.map((node: { sponsorEntity: { login: string; name: string; avatarUrl: string; }, tier?: { monthlyPriceInDollars: number } }) => ({
       login: node.sponsorEntity.login,
       name: node.sponsorEntity.name,
       avatarUrl: node.sponsorEntity.avatarUrl,
@@ -412,7 +409,7 @@ export async function fetchGitHubSponsors(username: string) {
     })) || [];
 
     // Extract tiers data
-    const tiers = result.data?.user?.sponsorsListing?.tiers?.nodes?.map((tier: any) => ({
+    const tiers = result.data?.user?.sponsorsListing?.tiers?.nodes?.map((tier: { monthlyPriceInDollars: number; name: string; description: string }) => ({
       price: tier.monthlyPriceInDollars,
       name: tier.name,
       description: tier.description
@@ -426,7 +423,7 @@ export async function fetchGitHubSponsors(username: string) {
     let sponsorPercentage = 0;
 
     // Try to find a goal related to number of sponsors
-    const sponsorCountGoal = goals.find((goal: any) =>
+    const sponsorCountGoal = goals.find((goal: { kind: string; title: string; targetValue?: number; percentComplete?: number }) =>
       goal.kind === 'TOTAL_SPONSORS_COUNT' ||
       (goal.title && goal.title.toLowerCase().includes('sponsor'))
     );
@@ -442,7 +439,7 @@ export async function fetchGitHubSponsors(username: string) {
     }
 
     // Calculate monthly income
-    const monthlyIncome = sponsors.reduce((sum: number, sponsor: any) => sum + (sponsor.tier || 0), 0);
+    const monthlyIncome = sponsors.reduce((sum: number, sponsor: { tier?: number }) => sum + (sponsor.tier || 0), 0);
 
     // Log the goals data for debugging
     console.log('GitHub Sponsor Goals:', goals);

@@ -1,4 +1,4 @@
-import { LucideIcon, Server, Globe2, Code, Database, Award, BookOpen, Users, Briefcase, Layers, Cpu, Lightbulb, GitBranch, Workflow, Bot, Globe } from "lucide-react"
+import { LucideIcon, Server, Globe2, Code, Database, BookOpen, Users, Briefcase, Layers, GitBranch, Workflow, Bot } from "lucide-react"
 import { Typography } from "@/components/ui/typography"
 import { ContentCard } from "@/components/ui/content-card"
 
@@ -216,11 +216,11 @@ export function Skills() {
         <div className="mt-4 flex items-center justify-center gap-6">
           <div className="flex items-center gap-2">
             <div className="h-3 w-3 rounded-full bg-blue-500"></div>
-            <span className="text-sm text-[var(--color-neutral-300)]">Professionally Learned</span>
+            <span className="text-sm dark:text-[var(--color-neutral-300)] text-gray-600">Professionally Learned</span>
           </div>
           <div className="flex items-center gap-2">
             <div className="h-3 w-3 rounded-full bg-green-500"></div>
-            <span className="text-sm text-[var(--color-neutral-300)]">Personally Learned</span>
+            <span className="text-sm dark:text-[var(--color-neutral-300)] text-gray-600">Personally Learned</span>
           </div>
         </div>
 
@@ -235,8 +235,8 @@ export function Skills() {
                 tags={skill.tags.map(tag => ({
                   name: tag.name,
                   className: tag.source === "professional"
-                    ? "bg-blue-900/70 text-blue-100 border-blue-700"
-                    : "bg-green-900/70 text-green-100 border-green-700"
+                    ? "dark:bg-blue-900/70 dark:text-blue-100 dark:border-blue-700 bg-blue-100 text-blue-800 border-blue-300"
+                    : "dark:bg-green-900/70 dark:text-green-100 dark:border-green-700 bg-green-100 text-green-800 border-green-300"
                 }))}
                 url={skill.url}
                 urlIcon={skill.urlIcon}

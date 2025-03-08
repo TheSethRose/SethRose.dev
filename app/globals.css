@@ -46,11 +46,11 @@
 
 @layer base {
   :root {
-    /* Light theme - updated to use more neutral grays with slight blue undertone */
-    --background: 220 5% 100%;
+    /* Light theme - improved with better contrasting elements */
+    --background: 220 5% 98%;
     --foreground: 220 10% 7%;
 
-    --card: 220 5% 98%;
+    --card: 220 5% 100%;
     --card-foreground: 220 10% 7%;
 
     --popover: 220 5% 100%;
@@ -59,8 +59,8 @@
     --primary: 210 70% 50%;
     --primary-foreground: 220 5% 98%;
 
-    --secondary: 220 10% 18%;
-    --secondary-foreground: 220 5% 98%;
+    --secondary: 220 10% 90%;
+    --secondary-foreground: 220 10% 10%;
 
     --muted: 220 5% 96%;
     --muted-foreground: 220 5% 45%;
@@ -71,11 +71,21 @@
     --destructive: 0 70% 60%;
     --destructive-foreground: 220 5% 98%;
 
-    --border: 220 10% 91%;
-    --input: 220 10% 91%;
+    --border: 220 10% 85%;
+    --input: 220 10% 85%;
     --ring: 210 70% 50%;
 
     --radius: 0.5rem;
+    
+    /* Light mode specific theme colors */
+    --light-card-bg: hsl(220, 5%, 100%);
+    --light-card-border: hsl(220, 10%, 85%);
+    --light-card-hover: hsl(220, 5%, 96%);
+    --light-icon-bg: hsl(210, 70%, 95%);
+    --light-icon-color: hsl(210, 70%, 50%);
+    --light-badge-bg: hsl(210, 70%, 95%);
+    --light-badge-border: hsl(210, 70%, 90%);
+    --light-badge-text: hsl(210, 70%, 40%);
   }
 
   .dark {
@@ -122,13 +132,24 @@
 
   body {
     @apply bg-[hsl(var(--background))] text-[hsl(var(--foreground))] antialiased;
+    background-attachment: fixed;
+    letter-spacing: -0.01em;
+  }
+  
+  body.dark {
     background-image: radial-gradient(
       circle at top right,
       hsla(210, 70%, 30%, 0.05),
       transparent 40%
     );
-    background-attachment: fixed;
-    letter-spacing: -0.01em;
+  }
+  
+  body:not(.dark) {
+    background-image: radial-gradient(
+      circle at top right,
+      hsla(210, 70%, 60%, 0.08),
+      transparent 40%
+    );
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -214,7 +235,8 @@
 
   .section-title::after {
     content: "";
-    @apply absolute bottom-[-0.75rem] left-0 w-20 h-1 bg-[var(--color-accent-700)] rounded-full;
+    @apply absolute bottom-[-0.75rem] left-0 w-20 h-1 rounded-full;
+    @apply dark:bg-[var(--color-accent-700)] bg-blue-500;
   }
 
   .section-subtitle {
@@ -250,16 +272,21 @@
   }
 
   .badge {
-    @apply inline-flex items-center rounded-full bg-[var(--color-dark-800)]/80 px-2.5 py-0.5 text-xs font-medium text-[var(--color-neutral-300)] transition-colors hover:bg-[var(--color-dark-700)] hover:text-white;
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium transition-colors;
+    @apply dark:bg-[var(--color-dark-800)]/80 dark:text-[var(--color-neutral-300)] dark:hover:bg-[var(--color-dark-700)] dark:hover:text-white;
+    @apply bg-[var(--light-badge-bg)] text-[var(--light-badge-text)] hover:bg-[var(--color-accent-500)]/20 hover:text-[var(--color-accent-700)];
   }
 
   .header-nav-link {
-    @apply relative text-[var(--color-neutral-300)] hover:text-white transition-colors duration-200 px-3 py-2;
+    @apply relative transition-colors duration-200 px-3 py-2;
+    @apply dark:text-[var(--color-neutral-300)] dark:hover:text-white;
+    @apply text-gray-700 hover:text-[var(--color-accent-700)];
   }
 
   .header-nav-link::after {
     content: "";
-    @apply absolute left-0 right-0 bottom-0 h-0.5 bg-[var(--color-accent-600)] scale-x-0 transition-transform duration-200 origin-bottom-right;
+    @apply absolute left-0 right-0 bottom-0 h-0.5 scale-x-0 transition-transform duration-200 origin-bottom-right;
+    @apply dark:bg-[var(--color-accent-600)] bg-blue-500;
   }
 
   .header-nav-link:hover::after {
@@ -267,7 +294,9 @@
   }
 
   .social-button {
-    @apply flex items-center justify-center h-10 w-10 rounded-full bg-[var(--color-dark-800)] text-[var(--color-neutral-300)] hover:bg-[var(--color-dark-700)] hover:text-white transition-all duration-200 hover:scale-110;
+    @apply flex items-center justify-center h-10 w-10 rounded-full transition-all duration-200 hover:scale-110;
+    @apply dark:bg-[var(--color-dark-800)] dark:text-[var(--color-neutral-300)] dark:hover:bg-[var(--color-dark-700)] dark:hover:text-white;
+    @apply bg-gray-100 text-gray-600 hover:bg-blue-50 hover:text-blue-700;
   }
 
   .social-button svg {

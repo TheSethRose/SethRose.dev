@@ -1,6 +1,5 @@
 import { Header } from "@/components/header"
 import { HeroSection } from "@/components/hero-section"
-import { QuickInsights } from "@/components/quick-insights"
 import { WorkExperience } from "@/components/work-experience"
 import { Projects } from "@/components/projects"
 import { Skills } from "@/components/skills"

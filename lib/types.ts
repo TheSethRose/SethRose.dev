@@ -1,4 +1,3 @@
-import { LucideIcon } from "lucide-react"
 
 // GitHub API response types
 export interface GitHubRepository {

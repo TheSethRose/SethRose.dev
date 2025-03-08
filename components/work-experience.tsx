@@ -1,9 +1,9 @@
 "use client"
 
-import { Briefcase, ChevronDown, ExternalLink, Building, Calendar, MapPin } from "lucide-react"
+import { Briefcase, ExternalLink, Building, Calendar, MapPin } from "lucide-react"
 import { Typography } from "@/components/ui/typography"
 import { Separator } from "@/components/ui/separator"
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
@@ -19,7 +19,7 @@ export function WorkExperience() {
   // Track which experience is shown in the modal
   const [selectedExperience, setSelectedExperience] = useState<number | null>(null)
   // Track calculated job durations
-  const [experiences, setExperiences] = useState(() => {
+  const [experiences] = useState(() => {
     // Initialize with calculated periods
     return initialExperiences.map(exp => {
       if (exp.endDate === "Present") {

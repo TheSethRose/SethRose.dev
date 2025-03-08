@@ -38,7 +38,7 @@ type GitHubComponentProps = {
 
 export function GitHub({ username, className = "" }: GitHubComponentProps) {
   const [sponsorsData, setSponsorsData] = useState<SponsorsData | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [, setLoading] = useState(true);
   const [previewPercentage, setPreviewPercentage] = useState<number | null>(null);
 
   // Toggle to show/hide the preview slider - set to false for production
@@ -266,7 +266,7 @@ function SponsorOctocat({ percentage }: { percentage: number }) {
 // Renamed component to better reflect its purpose - only showing avatars now
 export function GitHubSponsorsAvatars({ username }: { username: string }) {
   const [sponsorsData, setSponsorsData] = useState<SponsorsData | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [isLoading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -286,7 +286,7 @@ export function GitHubSponsorsAvatars({ username }: { username: string }) {
     loadSponsors();
   }, [username]);
 
-  if (loading) {
+  if (isLoading) {
     return (
       <div className="w-full">
         <Typography as="h4" variant="subtle" className="text-white text-sm mb-3 text-center">

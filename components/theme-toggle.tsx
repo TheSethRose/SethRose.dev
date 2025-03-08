@@ -18,31 +18,33 @@ export function ThemeToggle() {
               <Button
                 variant="outline"
                 size="icon"
-                className="rounded-full h-10 w-10 bg-[var(--color-dark-800)] border-0 hover:bg-[var(--color-dark-700)] text-[var(--color-neutral-200)] hover:text-white transition-all duration-300"
+                className="rounded-full h-10 w-10 transition-all duration-300 border-0
+                dark:bg-[var(--color-dark-800)] dark:hover:bg-[var(--color-dark-700)] dark:text-[var(--color-neutral-200)] dark:hover:text-white 
+                bg-gray-100 text-gray-600 hover:bg-blue-50 hover:text-blue-700"
               >
                 <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all duration-300 dark:-rotate-90 dark:scale-0" />
                 <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all duration-300 dark:rotate-0 dark:scale-100" />
                 <span className="sr-only">Toggle theme</span>
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="border-[var(--color-dark-800)] bg-[var(--color-dark-900)]">
+            <DropdownMenuContent align="end" className="dark:border-[var(--color-dark-800)] dark:bg-[var(--color-dark-900)] border-[var(--light-card-border)] bg-[var(--light-card-bg)]">
               <DropdownMenuItem
                 onClick={() => setTheme("light")}
-                className="hover:bg-[var(--color-dark-800)] cursor-pointer"
+                className="dark:hover:bg-[var(--color-dark-800)] hover:bg-[var(--light-badge-bg)] cursor-pointer"
               >
                 <Sun className="h-4 w-4 mr-2" />
                 Light
               </DropdownMenuItem>
               <DropdownMenuItem
                 onClick={() => setTheme("dark")}
-                className="hover:bg-[var(--color-dark-800)] cursor-pointer"
+                className="dark:hover:bg-[var(--color-dark-800)] hover:bg-[var(--light-badge-bg)] cursor-pointer"
               >
                 <Moon className="h-4 w-4 mr-2" />
                 Dark
               </DropdownMenuItem>
               <DropdownMenuItem
                 onClick={() => setTheme("system")}
-                className="hover:bg-[var(--color-dark-800)] cursor-pointer"
+                className="dark:hover:bg-[var(--color-dark-800)] hover:bg-[var(--light-badge-bg)] cursor-pointer"
               >
                 <Laptop className="h-4 w-4 mr-2" />
                 System

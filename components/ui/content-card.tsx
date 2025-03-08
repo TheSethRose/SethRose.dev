@@ -87,7 +87,9 @@ export function ContentCard({
 
   return (
     <div className={cn(
-      "group flex h-full flex-col justify-between rounded-lg border border-[var(--color-dark-800)] bg-transparent transition-all duration-300 hover:border-[var(--color-dark-700)] hover:bg-[var(--color-dark-900)]/50 hover:shadow-md hover:translate-y-[-2px]",
+      "group flex h-full flex-col justify-between rounded-lg transition-all duration-300 hover:shadow-md hover:translate-y-[-2px]",
+      "border dark:border-[var(--color-dark-800)] dark:hover:border-[var(--color-dark-700)] dark:bg-transparent dark:hover:bg-[var(--color-dark-900)]/50",
+      "border-[var(--light-card-border)] bg-white shadow-sm hover:border-[var(--color-accent-500)]/30 hover:bg-[var(--light-card-hover)]",
       cardPadding,
       className
     )}>
@@ -95,14 +97,18 @@ export function ContentCard({
         <div className="flex items-center justify-between pb-2">
           <div className="flex items-center gap-2">
             <div className={cn(
-              "flex items-center justify-center rounded-md bg-[var(--color-dark-800)] text-[var(--color-accent-600)] transition-colors duration-300 group-hover:bg-[var(--color-dark-700)] group-hover:text-[var(--color-accent-500)]",
+              "flex items-center justify-center rounded-md transition-colors duration-300",
+              "dark:bg-[var(--color-dark-800)] dark:text-[var(--color-accent-600)] dark:group-hover:bg-[var(--color-dark-700)] dark:group-hover:text-[var(--color-accent-500)]",
+              "bg-blue-50 text-blue-600 group-hover:bg-blue-100 group-hover:text-blue-700",
               iconSize
             )}>
               <Icon className={iconInnerSize} />
             </div>
             <div>
               <h3 className={cn(
-                "font-semibold text-[var(--color-neutral-100)] group-hover:text-[var(--color-accent-500)] transition-colors duration-200",
+                "font-semibold transition-colors duration-200",
+                "dark:text-[var(--color-neutral-100)] dark:group-hover:text-[var(--color-accent-500)]",
+                "text-gray-800 group-hover:text-[var(--color-accent-600)]",
                 titleSize
               )}>
                 {title}
@@ -141,7 +147,9 @@ export function ContentCard({
         {/* Description - only shown for medium and large cards */}
         {description && size !== "xs" && size !== "small" && (
           <div className={cn(
-            "mt-2 text-[var(--color-neutral-400)]",
+            "mt-2",
+            "dark:text-[var(--color-neutral-400)]",
+            "text-gray-700",
             lineClampClass,
             descriptionSize,
             size === "large" ? "whitespace-pre-line" : ""
@@ -187,7 +195,9 @@ export function ContentCard({
                 key={index}
                 variant="outline"
                 className={cn(
-                  "bg-[var(--color-dark-800)]/50 hover:bg-[var(--color-accent-700)] hover:text-white border-[var(--color-dark-700)] text-[var(--color-neutral-200)]",
+                  "transition-colors duration-200",
+                  "dark:bg-[var(--color-dark-800)]/50 dark:hover:bg-[var(--color-accent-700)] dark:hover:text-white dark:border-[var(--color-dark-700)] dark:text-[var(--color-neutral-200)]",
+                  "bg-gray-100 text-gray-700 border-gray-200 hover:bg-blue-50 hover:text-blue-700 hover:border-blue-200",
                   size === "small" ? "py-0 px-1.5" : "py-0.5 px-2",
                   fontSize,
                   isLongText && size === "small" ? "leading-tight" : "",
