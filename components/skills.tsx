@@ -73,7 +73,7 @@ export function Skills() {
     },
     {
       title: "Web Development",
-      description: "Expertise in modern web development technologies and frameworks.",
+      description: "Full-stack development skills focused on modern frameworks and efficient solutions.",
       tags: [
         { name: "React", source: "self-taught" },
         { name: "Next.js", source: "self-taught" },
@@ -121,14 +121,14 @@ export function Skills() {
     },
     {
       title: "AI & Machine Learning",
-      description: "Expertise in AI technologies and machine learning applications.",
+      description: "Strong foundation in applying AI technologies to practical business problems.",
       tags: [
-        { name: "MCP Servers", source: "self-taught" },
+        { name: "Large Language Models", source: "self-taught" },
         { name: "Claude", source: "self-taught" },
         { name: "Cursor", source: "self-taught" },
-        { name: "Grok3", source: "self-taught" },
-        { name: "XAI", source: "self-taught" },
-        { name: "LLM", source: "self-taught" }
+        { name: "AI Integration", source: "self-taught" },
+        { name: "Quantum Computing", source: "self-taught" },
+        { name: "Prompt Engineering", source: "self-taught" }
       ],
       icon: Bot,
       size: "medium"
@@ -210,7 +210,7 @@ export function Skills() {
     <section id="skills" className="section">
       <div className="mx-auto w-full max-w-5xl px-6 sm:px-8 md:px-12 lg:px-16">
         <Typography as="h2" variant="sectionTitle">Skills</Typography>
-        <Typography as="p" variant="sectionSubtitle">Technologies and expertise I bring to the table</Typography>
+        <Typography as="p" variant="sectionSubtitle">Technical capabilities and domain expertise</Typography>
 
         {/* Skill source legend */}
         <div className="mt-4 flex items-center justify-center gap-6">

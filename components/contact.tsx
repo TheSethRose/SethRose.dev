@@ -10,7 +10,7 @@ export function Contact() {
     <section id="contact" className="section">
       <div className="mx-auto w-full max-w-5xl px-6 sm:px-8 md:px-12 lg:px-16">
         <Typography as="h2" variant="sectionTitle" className="text-foreground">Contact</Typography>
-        <p className="mb-12 mt-6 text-lg text-foreground">Get in touch with me</p>
+        <p className="mb-12 mt-6 text-lg text-foreground">Let's discuss your next project</p>
 
         <div className="mt-8 grid gap-8 md:grid-cols-2">
           <div>
@@ -88,8 +88,7 @@ export function Contact() {
             <div className="mt-8">
               <h3 className="text-xl font-semibold mb-4 text-foreground">Let&apos;s Connect</h3>
               <p className="text-foreground">
-                I&apos;m always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
-                Feel free to reach out to me through the contact form or via my social media profiles.
+                I'm interested in projects that require practical solutions to complex technical challenges. Reach out through the contact form or connect with me on professional platforms to discuss potential collaborations.
               </p>
             </div>
           </div>

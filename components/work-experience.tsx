@@ -102,7 +102,7 @@ export function WorkExperience() {
     <section id="experience" className="section">
       <div className="mx-auto w-full max-w-5xl px-6 sm:px-8 md:px-12 lg:px-16">
         <Typography as="h2" variant="sectionTitle">Work Experience</Typography>
-        <Typography as="p" variant="sectionSubtitle">Professional journey and contributions</Typography>
+        <Typography as="p" variant="sectionSubtitle">Converting requirements into solutions</Typography>
 
         <div className="mt-8 space-y-10">
           {experiences.map((exp, index) => (
@@ -278,7 +278,7 @@ const initialExperiences = [
     startDate: "2020-11-01",
     endDate: "Present",
     formattedPeriod: "", // Will be calculated
-    location: "",
+    location: "Remote",
     highlights: [
       "ServiceNow Platform",
       "ITSM Solutions",
@@ -295,27 +295,27 @@ const initialExperiences = [
     responsibilities: [
       {
         title: "Platform Management",
-        text: "Manage the ServiceNow platform with skill, focusing on service automation, system integrations, and bespoke product development, and demonstrated expertise in workflow automation and process orchestration, instrumental in complex problem-solving scenarios."
+        text: "Manage ServiceNow platform focusing on service automation, system integrations, and custom development. Apply workflow automation and process orchestration to streamline complex business processes and eliminate manual steps."
       },
       {
         title: "Solution Development",
-        text: "Excel in the configuration and development of ServiceNow applications and modules, adapting solutions in alignment with evolving customer requirements and showcasing a nimble, solution-focused mindset dedicated to delivering tangible results."
+        text: "Develop ServiceNow applications with a direct, no-nonsense approach. Cut through complexity to deliver solutions that address core business needs. Adapt quickly to changing requirements without sacrificing quality or performance."
       },
       {
         title: "Stakeholder Engagement",
-        text: "Spearhead the planning and execution of stakeholder meetings to solicit feedback on tool modules, laying the groundwork for iterative development and feedback-centric enhancements, and cementing my reputation as a leader in collaborative, user-focused engineering."
+        text: "Guide stakeholder meetings with clear objectives and actionable outcomes. Translate business requirements into technical solutions while identifying opportunities for automation. Focus on practical solutions over theoretical discussions."
       },
       {
         title: "Technical Analysis",
-        text: "Conduct in-depth technical investigations into systems architecture and design, acting as a critical bridge between technical teams and stakeholders and underscoring my comprehensive grasp of complex system infrastructures."
+        text: "Break down complex technical challenges into actionable components. Provide clear, concise analysis of system architecture and capabilities. Identify bottlenecks and recommend practical improvements focused on performance and scalability."
       },
       {
         title: "Team Leadership",
-        text: "Mentor junior administrators and developers, playing an active role in code reviews and new development discussions, and fostered an environment of continuous learning and collective advancement."
+        text: "Mentor developers through practical guidance on technical challenges. Direct code reviews focused on actionable improvements rather than theoretical discussions. Share knowledge in a concise format with a focus on real-world application."
       },
       {
         title: "Integration Development",
-        text: "Developed and implemented an API interface that integrates ServiceNow with Google DialogFlow, enriching customer interactions through advanced natural language processing and marking a significant stride towards the adoption of cutting-edge integrative technologies."
+        text: "Built API interface connecting ServiceNow with Google DialogFlow for enhanced natural language processing. Improved self-service capabilities for users, streamlined ticket resolution workflow, and reduced manual support requirements through conversational AI."
       }
     ]
   },

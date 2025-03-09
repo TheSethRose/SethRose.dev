@@ -33,7 +33,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b backdrop-blur-sm bg-background/95 shadow-md border-border">
-      <div className="mx-auto w-full max-w-5xl px-6 sm:px-8 md:px-12 lg:px-16">
+      <div className="mx-auto w-full max-w-7xl px-6 sm:px-8 md:px-12 lg:px-16">
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center">
             <ThemeToggle />

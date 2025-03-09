@@ -11,15 +11,17 @@ export default function Home() {
   return (
     <div className="flex min-h-screen flex-col">
       <Header />
-      <div className="mx-auto w-full max-w-6xl px-6 sm:px-8 md:px-12 lg:px-16">
-        <main className="flex-1">
-          <HeroSection />
+      <main className="flex-1">
+        <HeroSection />
+        <div className="mx-auto w-full max-w-6xl px-6 sm:px-8 md:px-12 lg:px-16">
           <WorkExperience />
           <Projects />
           <Skills />
           <Certifications />
           <Contact />
-        </main>
+        </div>
+      </main>
+      <div className="mx-auto w-full max-w-6xl px-6 sm:px-8 md:px-12 lg:px-16">
         <Footer />
       </div>
     </div>

@@ -22,32 +22,32 @@ const iconMap: Record<string, LucideIcon> = {
 // Fallback projects in case API fails
 const fallbackProjects: ProjectData[] = [
   {
-    title: "Large Project Example",
-    description: "This is an example of a large project card with a longer description. It demonstrates how a large card would appear in the projects section with multiple lines of text.\n\nLarge cards can include multiple paragraphs and provide more detailed information about the project, its features, and implementation details.",
-    tags: ["TypeScript", "React", "NextJS", "TailwindCSS", "API"],
-    url: "https://github.com/example/large-project",
+    title: "Agent-Chat",
+    description: "AI-powered conversational agent using Llama 3.2 model and Phidata framework. Built for efficient interactions with minimal interface overhead. Focuses on practical responses to user queries.",
+    tags: ["Python", "Llama", "AI", "LLM", "Phidata"],
+    url: "https://github.com/TheSethRose/Agent-Chat",
     urlIcon: "Github",
     urlText: "View on GitHub",
     icon: "Bot",
     size: "large"
   },
   {
-    title: "Medium Project Example",
-    description: "This is an example of a medium project card with a moderate description length that fits within the allocated space.",
-    tags: ["Python", "FastAPI", "Database"],
-    url: "https://github.com/example/medium-project",
+    title: "ServiceNow-KB-Extractor",
+    description: "Python utility that extracts knowledge base articles from ServiceNow and converts them to markdown. Streamlines documentation management and improves content portability across platforms.",
+    tags: ["Python", "ServiceNow", "Automation", "Markdown"],
+    url: "https://github.com/TheSethRose/ServiceNow-KB-Extractor",
     urlIcon: "Github",
     urlText: "View on GitHub",
     icon: "Server",
     size: "medium"
   },
   {
-    title: "Small Project Example",
-    description: "",
-    tags: ["JavaScript", "Utility"],
-    url: "https://github.com/example/small-project",
+    title: "Referral System",
+    description: "Automated solution for managing referral processes. Reduced manual effort through strategic automation, demonstrating tangible ROI through quantifiable efficiency gains.",
+    tags: ["JavaScript", "Automation", "Web Scraping"],
+    url: "https://github.com/TheSethRose",
     urlIcon: "Github",
-    urlText: "View on GitHub",
+    urlText: "View Profile",
     icon: "Code",
     size: "small"
   }
@@ -115,7 +115,7 @@ export function Projects() {
     <section id="projects" className="section">
       <div className="mx-auto w-full max-w-5xl px-6 sm:px-8 md:px-12 lg:px-16">
         <Typography as="h2" variant="sectionTitle">Featured Projects</Typography>
-        <Typography as="p" variant="sectionSubtitle">Open-source solutions I&apos;ve developed</Typography>
+        <Typography as="p" variant="sectionSubtitle">Technical solutions with real-world impact</Typography>
 
         {loading ? (
           renderSkeletonCards()
