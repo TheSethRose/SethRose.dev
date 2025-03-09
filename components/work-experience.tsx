@@ -127,13 +127,13 @@ export function WorkExperience() {
                 </button>
 
                 <div className="mt-1">
-                  <p className="text-sm font-bold text-[var(--color-neutral-400)]">
+                  <p className="text-sm font-bold dark:text-[var(--color-neutral-400)] text-black">
                     {exp.company} • {exp.type}
                   </p>
-                  <p className="text-sm text-[var(--color-neutral-400)]">
+                  <p className="text-sm dark:text-[var(--color-neutral-400)] text-black">
                     {exp.formattedPeriod || `${formatDate(exp.startDate)} — ${exp.endDate === "Present" ? "Present" : formatDate(exp.endDate)}`}
                   </p>
-                  {exp.location && <p className="text-sm text-[var(--color-neutral-400)]">{exp.location}</p>}
+                  {exp.location && <p className="text-sm dark:text-[var(--color-neutral-400)] text-black">{exp.location}</p>}
                 </div>
 
                 {/* Key highlights section with updated badge styling */}
@@ -143,7 +143,8 @@ export function WorkExperience() {
                       key={i}
                       variant="outline"
                       className={cn(
-                        "bg-[var(--color-dark-800)]/50 hover:bg-[var(--color-accent-700)] hover:text-white border-[var(--color-dark-700)] text-[var(--color-neutral-200)]",
+                        "dark:bg-[var(--color-dark-800)]/50 dark:hover:bg-[var(--color-accent-700)] dark:hover:text-white dark:border-[var(--color-dark-700)] dark:text-[var(--color-neutral-200)]",
+                        "bg-gray-100 text-gray-700 border-gray-200 hover:bg-blue-100 hover:text-blue-700",
                         "py-0.5 px-2 text-xs"
                       )}
                     >
@@ -161,7 +162,7 @@ export function WorkExperience() {
           <Dialog open={selectedExperience !== null} onOpenChange={closeExperienceModal}>
             <DialogContent
               width="w-[75%] max-h-[80vh]"
-              className="overflow-y-auto bg-[var(--color-dark-900)] border-[var(--color-dark-700)]"
+              className="overflow-y-auto dark:bg-[var(--color-dark-900)] dark:border-[var(--color-dark-700)] bg-white border-gray-200"
             >
               <DialogHeader className="pb-0 border-b-0">
                 <DialogTitle className="text-2xl font-bold">
@@ -178,15 +179,15 @@ export function WorkExperience() {
 
                   {/* Company and job details */}
                   <div className="flex-1">
-                    <h3 className="text-lg font-semibold text-[var(--color-neutral-100)]">
+                    <h3 className="text-lg font-semibold dark:text-[var(--color-neutral-100)] text-black">
                       {experiences[selectedExperience].company}
                     </h3>
-                    <p className="text-sm text-[var(--color-neutral-400)]">
+                    <p className="text-sm dark:text-[var(--color-neutral-400)] text-black">
                       {experiences[selectedExperience].type}
                     </p>
 
                     <div className="mt-3 flex flex-col sm:flex-row sm:items-center gap-y-2 sm:gap-x-4 text-sm">
-                      <div className="flex items-center gap-1.5 text-[var(--color-neutral-300)]">
+                      <div className="flex items-center gap-1.5 dark:text-[var(--color-neutral-300)] text-black">
                         <Calendar className="h-4 w-4 text-[var(--color-accent-500)]" />
                         <span>
                           {experiences[selectedExperience].formattedPeriod ||
@@ -200,7 +201,7 @@ export function WorkExperience() {
                       </div>
 
                       {experiences[selectedExperience].location && (
-                        <div className="flex items-center gap-1.5 text-[var(--color-neutral-300)]">
+                        <div className="flex items-center gap-1.5 dark:text-[var(--color-neutral-300)] text-black">
                           <MapPin className="h-4 w-4 text-[var(--color-accent-500)]" />
                           <span>{experiences[selectedExperience].location}</span>
                         </div>
@@ -213,14 +214,14 @@ export function WorkExperience() {
               <div className="mb-6">
                 <h4 className="text-lg font-semibold mb-3 text-[var(--color-accent-500)] flex items-center">
                   <span>Key Skills</span>
-                  <div className="h-px flex-1 bg-[var(--color-dark-700)] ml-3"></div>
+                  <div className="h-px flex-1 dark:bg-[var(--color-dark-700)] bg-gray-200 ml-3"></div>
                 </h4>
                 <div className="flex flex-wrap gap-2">
                   {experiences[selectedExperience].highlights.map((highlight, i) => (
                     <Badge
                       key={i}
                       variant="outline"
-                      className="bg-[var(--color-dark-800)] text-[var(--color-accent-400)] border-[var(--color-accent-700)] border-opacity-30 hover:bg-[var(--color-accent-900)] hover:bg-opacity-50 py-1 px-3"
+                      className="dark:bg-[var(--color-dark-800)] dark:text-[var(--color-accent-400)] dark:border-[var(--color-accent-700)] dark:border-opacity-30 dark:hover:bg-[var(--color-accent-900)] dark:hover:bg-opacity-50 bg-gray-100 text-blue-600 border-blue-200 hover:bg-blue-50 py-1 px-3"
                     >
                       {highlight}
                     </Badge>
@@ -231,7 +232,7 @@ export function WorkExperience() {
               <div>
                 <h4 className="text-lg font-semibold mb-3 text-[var(--color-accent-500)] flex items-center">
                   <span>Responsibilities & Achievements</span>
-                  <div className="h-px flex-1 bg-[var(--color-dark-700)] ml-3"></div>
+                  <div className="h-px flex-1 dark:bg-[var(--color-dark-700)] bg-gray-200 ml-3"></div>
                 </h4>
 
                 {/* Formatted responsibilities */}
@@ -241,12 +242,12 @@ export function WorkExperience() {
                     return (
                       <div
                         key={respIndex}
-                        className="border-l-2 border-[var(--color-accent-700)] border-opacity-30 hover:border-[var(--color-accent-500)] pl-4 py-2 transition-all rounded-r bg-[var(--color-dark-800)] bg-opacity-30 hover:bg-[var(--color-dark-800)] hover:bg-opacity-50"
+                        className="border-l-2 border-[var(--color-accent-700)] border-opacity-30 hover:border-[var(--color-accent-500)] pl-4 py-2 transition-all rounded-r dark:bg-[var(--color-dark-800)] dark:bg-opacity-30 dark:hover:bg-[var(--color-dark-800)] dark:hover:bg-opacity-50 bg-gray-50 hover:bg-blue-50"
                       >
-                        <h5 className="text-md font-medium text-[var(--color-neutral-100)] flex items-center">
+                        <h5 className="text-md font-medium dark:text-[var(--color-neutral-100)] text-black flex items-center">
                           <span className="text-[var(--color-accent-500)]">{formatted.title}</span>
                         </h5>
-                        <p className="mt-2 text-sm leading-relaxed text-[var(--color-neutral-300)]">
+                        <p className="mt-2 text-sm leading-relaxed dark:text-[var(--color-neutral-300)] text-black">
                           {formatted.text}
                         </p>
                       </div>
@@ -255,7 +256,7 @@ export function WorkExperience() {
                 </div>
               </div>
 
-              <DialogFooter className="mt-8 pt-4 border-t border-[var(--color-dark-700)]">
+              <DialogFooter className="mt-8 pt-4 dark:border-t dark:border-[var(--color-dark-700)] border-t border-gray-200">
                 <Button variant="accent" onClick={closeExperienceModal}>
                   Close
                 </Button>

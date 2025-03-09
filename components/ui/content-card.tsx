@@ -5,6 +5,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
 import ReactMarkdown from "react-markdown"
+import { ReactNode } from "react"
 
 interface TagProps {
   name: string
@@ -12,9 +13,9 @@ interface TagProps {
 }
 
 interface CardProps {
-  title: string
+  title: string | ReactNode
   icon: LucideIcon
-  description?: string
+  description?: string | ReactNode
   issuer?: string
   tags?: Array<string | TagProps>
   url?: string
@@ -85,11 +86,64 @@ export function ContentCard({
     large: "line-clamp-12"
   }[size];
 
+  // Render title based on type
+  const renderTitle = () => {
+    if (typeof title === 'string') {
+      return (
+        <h3 className={cn(
+          "font-semibold transition-colors duration-200",
+          "text-card-foreground group-hover:text-accent",
+          titleSize
+        )}>
+          {title}
+        </h3>
+      );
+    }
+    return (
+      <h3 className={cn(
+        "font-semibold transition-colors duration-200",
+        titleSize
+      )}>
+        {title}
+      </h3>
+    );
+  };
+
+  // Render description based on type
+  const renderDescription = () => {
+    if (!description) return null;
+
+    if (typeof description === 'string') {
+      return (
+        <div className="markdown-content">
+          <ReactMarkdown
+            components={{
+              p: ({ children }) => <p className="mb-2">{children}</p>,
+              strong: ({ children }) => <span className="font-semibold text-foreground">{children}</span>,
+              a: ({ href, children }) => (
+                <a
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-accent hover:underline"
+                >
+                  {children}
+                </a>
+              )
+            }}
+          >
+            {description}
+          </ReactMarkdown>
+        </div>
+      );
+    }
+    return description;
+  };
+
   return (
     <div className={cn(
-      "group flex h-full flex-col justify-between rounded-lg transition-all duration-300 hover:shadow-md hover:translate-y-[-2px]",
-      "border dark:border-[var(--color-dark-800)] dark:hover:border-[var(--color-dark-700)] dark:bg-transparent dark:hover:bg-[var(--color-dark-900)]/50",
-      "border-[var(--light-card-border)] bg-white shadow-sm hover:border-[var(--color-accent-500)]/30 hover:bg-[var(--light-card-hover)]",
+      "group flex h-full flex-col justify-between rounded-xl transition-all duration-300 hover:shadow-md hover:translate-y-[-2px]",
+      "border border-border bg-card dark:bg-gradient-to-br dark:from-[#161b22] dark:to-[#0d1117] hover:border-accent/30 shadow-sm",
       cardPadding,
       className
     )}>
@@ -98,23 +152,15 @@ export function ContentCard({
           <div className="flex items-center gap-2">
             <div className={cn(
               "flex items-center justify-center rounded-md transition-colors duration-300",
-              "dark:bg-[var(--color-dark-800)] dark:text-[var(--color-accent-600)] dark:group-hover:bg-[var(--color-dark-700)] dark:group-hover:text-[var(--color-accent-500)]",
-              "bg-blue-50 text-blue-600 group-hover:bg-blue-100 group-hover:text-blue-700",
+              "bg-secondary/80 text-accent group-hover:bg-accent/10 group-hover:text-accent",
               iconSize
             )}>
               <Icon className={iconInnerSize} />
             </div>
             <div>
-              <h3 className={cn(
-                "font-semibold transition-colors duration-200",
-                "dark:text-[var(--color-neutral-100)] dark:group-hover:text-[var(--color-accent-500)]",
-                "text-gray-800 group-hover:text-[var(--color-accent-600)]",
-                titleSize
-              )}>
-                {title}
-              </h3>
+              {renderTitle()}
               {size === "xs" && issuer && (
-                <p className="text-xs text-[var(--color-neutral-400)] line-clamp-1">{issuer}</p>
+                <p className="text-xs text-muted-foreground line-clamp-1">{issuer}</p>
               )}
             </div>
           </div>
@@ -148,32 +194,12 @@ export function ContentCard({
         {description && size !== "xs" && size !== "small" && (
           <div className={cn(
             "mt-2",
-            "dark:text-[var(--color-neutral-400)]",
-            "text-gray-700",
+            "text-foreground/90",
             lineClampClass,
             descriptionSize,
             size === "large" ? "whitespace-pre-line" : ""
           )}>
-            <div className="markdown-content">
-              <ReactMarkdown
-                components={{
-                  p: ({ children }) => <p className="mb-2">{children}</p>,
-                  strong: ({ children }) => <span className="font-semibold text-[var(--color-neutral-300)]">{children}</span>,
-                  a: ({ href, children }) => (
-                    <a
-                      href={href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-[var(--color-accent-500)] hover:underline"
-                    >
-                      {children}
-                    </a>
-                  )
-                }}
-              >
-                {description}
-              </ReactMarkdown>
-            </div>
+            {renderDescription()}
           </div>
         )}
       </div>
@@ -196,8 +222,7 @@ export function ContentCard({
                 variant="outline"
                 className={cn(
                   "transition-colors duration-200",
-                  "dark:bg-[var(--color-dark-800)]/50 dark:hover:bg-[var(--color-accent-700)] dark:hover:text-white dark:border-[var(--color-dark-700)] dark:text-[var(--color-neutral-200)]",
-                  "bg-gray-100 text-gray-700 border-gray-200 hover:bg-blue-50 hover:text-blue-700 hover:border-blue-200",
+                  "bg-secondary/50 dark:bg-[#30363d]/50 hover:bg-accent/10 hover:text-accent border-border text-muted-foreground",
                   size === "small" ? "py-0 px-1.5" : "py-0.5 px-2",
                   fontSize,
                   isLongText && size === "small" ? "leading-tight" : "",

@@ -73,10 +73,10 @@ export function GitHub({ username, className = "" }: GitHubComponentProps) {
 
   return (
     <div className={`mt-16 ${className}`}>
-      <div className="rounded-xl bg-[var(--color-background)] border border-[#30363d] shadow-lg overflow-hidden">
+      <div className="rounded-xl dark:bg-[var(--color-background)] dark:border-[#30363d] bg-white border border-gray-200 shadow-lg overflow-hidden">
         <div className="grid grid-cols-1 md:grid-cols-2">
           {/* GitHub Heatmap */}
-          <div className="p-8 md:border-r border-[#30363d] flex flex-col items-center justify-center h-full">
+          <div className="p-8 md:border-r dark:border-[#30363d] border-gray-200 flex flex-col items-center justify-center h-full">
             <div className="w-full flex flex-col items-center h-full">
               <Typography as="h3" variant="h3" className="text-center font-bold mb-3">
                 GitHub Activity
@@ -89,7 +89,7 @@ export function GitHub({ username, className = "" }: GitHubComponentProps) {
 
                 {/* View More on GitHub button - styled to match sponsor button */}
                 <div className="w-full flex justify-center mt-6">
-                  <Button asChild size="lg" className="w-full max-w-xs bg-transparent border border-[#30363d] hover:border-[#6e7681] transition-all duration-300 group">
+                  <Button asChild size="lg" className="w-full max-w-xs dark:bg-transparent dark:border dark:border-[#30363d] dark:hover:border-[#6e7681] bg-gray-100 border border-gray-300 hover:bg-gray-200 transition-all duration-300 group">
                     <Link href={`https://github.com/${username}`} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center">
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2 h-5 w-5 transition-transform duration-300 group-hover:scale-110">
                         <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
@@ -104,7 +104,7 @@ export function GitHub({ username, className = "" }: GitHubComponentProps) {
           </div>
 
           {/* Sponsor Card */}
-          <div className="bg-gradient-to-br from-[#161b22] to-[#0d1117] p-8 flex flex-col items-center justify-center text-center h-full">
+          <div className="dark:bg-gradient-to-br dark:from-[#161b22] dark:to-[#0d1117] bg-gray-50 p-8 flex flex-col items-center justify-center text-center h-full">
             {/* Preview Slider - for development */}
             {showPreviewSlider && (
               <div className="mb-4 px-4 w-full">
@@ -131,19 +131,19 @@ export function GitHub({ username, className = "" }: GitHubComponentProps) {
                   <SponsorOctocat percentage={displayPercentage} />
                 </div>
 
-                <Typography as="h3" variant="h3" className="text-white font-bold mb-3 text-center">
+                <Typography as="h3" variant="h3" className="dark:text-white text-gray-800 font-bold mb-3 text-center">
                   Sponsor My Work
                 </Typography>
-                <Typography as="p" variant="subtle" className="text-[#8b949e] mb-6 max-w-xs mx-auto text-center">
+                <Typography as="p" variant="subtle" className="dark:text-[#8b949e] text-gray-600 mb-6 max-w-xs mx-auto text-center">
                   Support my open source contributions and help me create more useful tools and content.
                 </Typography>
 
                 {/* Sponsor Goal Progress - moved between description and button */}
                 <div className="mb-1">
-                  <Typography as="h4" variant="subtle" className="text-white text-sm mb-3 text-center">
+                  <Typography as="h4" variant="subtle" className="dark:text-white text-gray-800 text-sm mb-3 text-center">
                     {displayPercentage}% towards {sponsorsData?.sponsorGoal || 10} monthly sponsors goal
                   </Typography>
-                  <div className="h-4 bg-[#30363d] rounded-full w-full max-w-xs mx-auto overflow-hidden">
+                  <div className="h-4 dark:bg-[#30363d] bg-gray-200 rounded-full w-full max-w-xs mx-auto overflow-hidden">
                     <div
                       className="h-full bg-gradient-to-r from-[#238636] to-[#2ea043] transition-all duration-500"
                       style={{ width: `${displayPercentage}%` }}
@@ -160,7 +160,7 @@ export function GitHub({ username, className = "" }: GitHubComponentProps) {
 
               {/* Sponsor Button - moved to bottom */}
               <div className="w-full flex justify-center mt-6">
-                <Button asChild size="lg" className="w-full max-w-xs bg-[#238636] hover:bg-[#2ea043] text-white border-0 shadow-md hover:shadow-lg transition-all duration-300 group">
+                <Button asChild size="lg" className="w-full max-w-xs dark:bg-[#238636] dark:hover:bg-[#2ea043] dark:text-white bg-blue-600 hover:bg-blue-700 text-white border-0 shadow-md hover:shadow-lg transition-all duration-300 group">
                   <Link href={`https://github.com/sponsors/${username}`} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" className="mr-2 h-5 w-5 transition-transform duration-300 group-hover:scale-110">
                       <path fillRule="evenodd" d="M4.25 2.5c-1.336 0-2.75 1.164-2.75 3 0 2.15 1.58 4.144 3.365 5.682A20.565 20.565 0 008 13.393a20.561 20.561 0 003.135-2.211C12.92 9.644 14.5 7.65 14.5 5.5c0-1.836-1.414-3-2.75-3-1.373 0-2.609.986-3.029 2.456a.75.75 0 01-1.442 0C6.859 3.486 5.623 2.5 4.25 2.5zM8 14.25l-.345.666-.002-.001-.006-.003-.018-.01a7.643 7.643 0 01-.31-.17 22.075 22.075 0 01-3.434-2.414C2.045 10.731 0 8.35 0 5.5 0 2.836 2.086 1 4.25 1 5.797 1 7.153 1.802 8 3.02 8.847 1.802 10.203 1 11.75 1 13.914 1 16 2.836 16 5.5c0 2.85-2.045 5.231-3.885 6.818a22.08 22.08 0 01-3.744 2.584l-.018.01-.006.003h-.002L8 14.25z" fill="currentColor" />
@@ -289,8 +289,8 @@ export function GitHubSponsorsAvatars({ username }: { username: string }) {
   if (isLoading) {
     return (
       <div className="w-full">
-        <Typography as="h4" variant="subtle" className="text-white text-sm mb-3 text-center">
-          Loading Sponsor Data...
+        <Typography as="h4" variant="subtle" className="dark:text-white text-gray-800 text-sm mb-3 text-center">
+        Loading Sponsor Data...
         </Typography>
         <div className="flex justify-center gap-2 mt-4">
           <Skeleton className="h-8 w-8 rounded-full" />
@@ -311,7 +311,7 @@ export function GitHubSponsorsAvatars({ username }: { username: string }) {
       {/* Current Sponsors */}
       {sponsorsData && sponsorsData.totalSponsors > 0 && (
         <>
-          <Typography as="h4" variant="subtle" className="text-white text-sm mb-3 text-center">
+          <Typography as="h4" variant="subtle" className="dark:text-white text-gray-800 text-sm mb-3 text-center">
             {sponsorsData.totalSponsors} {sponsorsData.totalSponsors === 1 ? 'Sponsor' : 'Sponsors'}
           </Typography>
 
@@ -325,7 +325,7 @@ export function GitHubSponsorsAvatars({ username }: { username: string }) {
                 className="transition-transform hover:scale-110"
                 title={sponsor.name || sponsor.login}
               >
-                <div className="h-8 w-8 rounded-full overflow-hidden border border-[#30363d]">
+                <div className="h-8 w-8 rounded-full overflow-hidden border dark:border-[#30363d] border-gray-300">
                   <Image
                     src={sponsor.avatarUrl}
                     alt={sponsor.name || sponsor.login}

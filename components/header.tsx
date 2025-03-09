@@ -32,7 +32,7 @@ export function Header() {
   }
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b backdrop-blur-sm bg-[var(--color-dark-950)]/95 shadow-md">
+    <header className="sticky top-0 z-50 w-full border-b backdrop-blur-sm bg-background/95 shadow-md border-border">
       <div className="mx-auto w-full max-w-5xl px-6 sm:px-8 md:px-12 lg:px-16">
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center">
@@ -52,8 +52,8 @@ export function Header() {
                     <NavigationMenuLink
                       className={cn(
                         navigationMenuTriggerStyle(),
-                        "bg-transparent hover:bg-[var(--color-dark-800)]/50 px-3",
-                        activeItem === item.href && "text-[var(--color-accent-500)] after:bg-[var(--color-accent-600)] after:h-[2px] after:w-full after:bottom-0 after:left-0 after:absolute after:content-['']"
+                        "bg-transparent hover:bg-secondary/80 px-3",
+                        activeItem === item.href && "text-accent after:bg-accent after:h-[2px] after:w-full after:bottom-0 after:left-0 after:absolute after:content-['']"
                       )}
                       onClick={() => handleNavClick(item.href)}
                     >
@@ -74,9 +74,9 @@ export function Header() {
                   <span className="sr-only">Open main menu</span>
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="bg-[var(--color-dark-950)] border-l border-[var(--color-dark-800)]">
+              <SheetContent side="right" className="bg-background border-l border-border">
                 <SheetHeader>
-                  <SheetTitle className="text-left text-[var(--color-neutral-100)]">Navigation</SheetTitle>
+                  <SheetTitle className="text-left text-foreground">Navigation</SheetTitle>
                 </SheetHeader>
                 <nav className="mt-6 flex flex-col space-y-3">
                   {navItems.map((item) => (
@@ -84,8 +84,8 @@ export function Header() {
                       key={item.href}
                       href={item.href}
                       className={cn(
-                        "py-2.5 px-3 rounded-md transition-colors text-[var(--color-neutral-200)] hover:text-[var(--color-neutral-100)] hover:bg-[var(--color-dark-800)]/50",
-                        activeItem === item.href && "text-[var(--color-accent-500)] bg-[var(--color-dark-800)]/30"
+                        "py-2.5 px-3 rounded-md transition-colors text-muted-foreground hover:text-foreground hover:bg-secondary/50",
+                        activeItem === item.href && "text-accent bg-secondary/70"
                       )}
                       onClick={() => handleNavClick(item.href)}
                     >
